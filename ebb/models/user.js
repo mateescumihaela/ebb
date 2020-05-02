@@ -10,7 +10,7 @@ const userSchema = new Schema({
   password: String,
   email: String,
   image: Image,
-}  {
+},  {
   timestamps: {
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'

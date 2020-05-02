@@ -4,11 +4,10 @@ const router = express.Router();
 const Company = require('../models/company');
 
 //Homepage
-router.get('/company', (req, res, next) => {
+router.get('/companies', (req, res, next) => {
   Company.find()
     .then(allCompaniesFromDB => { // <- Backend requesting data from Mongo 
       res.render('companies', { allCompanies: allCompaniesFromDB }); 
-      // Backend is responding to the front end with the data from Mongo
     })
     .catch(error => {
       next(error);

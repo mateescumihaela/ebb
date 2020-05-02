@@ -5,7 +5,7 @@ const companySchema = new Schema({
   name: String,
   industry: String,
   url: String,
-  image: Image,
+  //image: Image,
   description: String,
   size: String,
   noOfEmployees: Number,
