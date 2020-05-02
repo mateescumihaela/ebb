@@ -1,0 +1,18 @@
+<h1>{{ title }}</h1>
+<ul>
+  {{#each allCompanies}}
+  <li>
+    <a href="/companies/{{ this._id }}">
+      {{ this.name }}
+    </a>
+    - {{ this.URL }}
+    <a href="/companies/{{ this._id }}/edit">
+      Edit
+    </a>
+  </li>
+  {{/each}}
+</ul>
+
+<a href="/companies/new">
+  Submit a new company
+</a>
