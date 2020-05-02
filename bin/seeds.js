@@ -40,10 +40,10 @@ const company = [
   }
 ];
 
-Company.create(companies, err => {
+Company.create(company, err => {
   if (err) {
     throw err;
   }
-  console.log(`Created ${books.length} books`);
+  console.log(`Created ${company.length} company`);
   mongoose.connection.close();
 });
