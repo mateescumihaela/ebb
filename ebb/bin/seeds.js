@@ -1,6 +1,6 @@
 
 const mongoose = require('mongoose');
-const Book = require('../models/company');
+const Company = require('../models/company');
  
 const DB_NAME = 'ebb';
  
@@ -44,6 +44,6 @@ Company.create(companies, err => {
   if (err) {
     throw err;
   }
-  console.log(`Created ${companies.length} companies`);
+  console.log(`Created ${books.length} books`);
   mongoose.connection.close();
 });
