@@ -9,7 +9,7 @@ const userSchema = new Schema({
   username: String,
   password: String,
   email: String,
-  image: Image,
+  image: String,
 },  {
   timestamps: {
     createdAt: 'createdAt',
