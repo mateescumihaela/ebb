@@ -8,7 +8,8 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-
+const session      = require('express-session');
+const MongoStore   = require('connect-mongo')(session);
 
 mongoose
   .connect('mongodb://localhost/ebb', {useNewUrlParser: true})
@@ -30,6 +31,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// Setting up authentication session
+app.use(session({
+  secret: "ebb-auth-secret",
+  cookie: {max: 60000}, //cookie living on the  browser - 1 minute
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    resave: true,
+    saveUninitialized: false,
+    ttl: 24 * 60* 60, // session living on the server - 1day, 
+  })
+}));
+
 // Express View engine setup
 
 app.use(require('node-sass-middleware')({
@@ -47,14 +60,16 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'EBB - CATCH PHRASE HERE :)';
 
 
-
+const auth = require('./routes/auth-routes');
 const index = require('./routes/index');
 const companies = require('./routes/companies');
 
+app.use('/', auth);
 app.use('/', index);
 app.use('/', companies);
+
 
 module.exports = app;
