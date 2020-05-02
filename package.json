@@ -1,0 +1,36 @@
+{
+  "name": "ebb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateescumihaela/ebb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mateescumihaela/ebb/issues"
+  },
+  "homepage": "https://github.com/mateescumihaela/ebb#readme",
+  "bin": {
+    "ebb": "seeds.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "hbs": "^4.1.1",
+    "mongoose": "^5.9.11",
+    "morgan": "^1.10.0",
+    "node-sass-middleware": "^0.11.0",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}
