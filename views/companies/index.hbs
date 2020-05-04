@@ -24,7 +24,6 @@
     <h1>Of Female Friendly Companies</h1>
     <p>blah blah blah</p>
     <p><a class='btn-lg btn-primary' href='/companies/new'>Add Company</a></p>
-
   </header>
 
   
@@ -33,9 +32,9 @@
       <h3>Most Popular Companies</h3>
     </div>
      {{#each allCompanies}}
-    <div class='col-md-3 col-sm-6'>
+    <div class='col-md-4 col-sm-6'>
       <div class='thumbnail'>
-        <img src='{{ this.image }}'
+        <img width='300' height='300' src='{{ this.image }}'
         <div class='caption'>
           <h4>{{ this.name }}</h4>
         </div>
