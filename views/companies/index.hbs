@@ -1,4 +1,4 @@
-<h1>{{ title }}</h1>
+{{!-- <h1>{{ title }}</h1>
 <ul>
   {{#each allCompanies}}
   <li>
@@ -15,4 +15,36 @@
 
 <a href="/companies/new">
   Submit a new company
-</a>
+</a> --}}
+
+
+<div class='container'>
+  <header class='jumbotron'>
+    <h1>The Curated List</h1>
+    <h1>Of Female Friendly Companies</h1>
+    <p>blah blah blah</p>
+    <p><a class='btn-lg btn-primary' href='/companies/new'>Add Company</a></p>
+
+  </header>
+
+  
+  <div class='row'>
+    <div class='col-lg-12'>
+      <h3>Most Popular Companies</h3>
+    </div>
+     {{#each allCompanies}}
+    <div class='col-md-3 col-sm-6'>
+      <div class='thumbnail'>
+        <img src='{{ this.image }}'
+        <div class='caption'>
+          <h4>{{ this.name }}</h4>
+        </div>
+        <div class='caption'>
+          <a href='/companies/{{ this._id }}' class= 'btn btn-primary'>More Info</a>
+        </div>
+      </div>
+       {{/each}}
+    </div>
+  </div>
+</div>
+
