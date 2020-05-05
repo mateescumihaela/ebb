@@ -18,6 +18,8 @@
 </a> --}}
 
 
+{{> header}}
+
 <div class='container'>
   <header class='jumbotron'>
     <h1>The Curated List</h1>
@@ -25,16 +27,14 @@
     <p>blah blah blah</p>
     <p><a class='btn-lg btn-primary' href='/companies/new'>Add Company</a></p>
   </header>
-
-  
   <div class='row'>
     <div class='col-lg-12'>
       <h3>Most Popular Companies</h3>
     </div>
      {{#each allCompanies}}
-    <div class='col-md-4 col-sm-6'>
+    <div class='col-md-4 col-sm-6' style='height:250px'>
       <div class='thumbnail'>
-        <img width='300' height='300' src='{{ this.image }}'
+        <img src='{{ this.image }}'
         <div class='caption'>
           <h4>{{ this.name }}</h4>
         </div>
