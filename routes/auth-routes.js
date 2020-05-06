@@ -29,8 +29,8 @@ router.get('/logout', (req, res, next) => {
 });
 
 router.get('/users/:username', (req, res) => {
-    let username = req.params.username;
-    res.render('users', {username});
+    const currentUser = req.session.currentUser;
+    res.render('users', {currentUser});
 })
 
 // POST Routes
