@@ -28,6 +28,11 @@ router.get('/logout', (req, res, next) => {
     })
 });
 
+router.get('/users/:username', (req, res) => {
+    let username = req.params.username;
+    res.render('users', {username});
+})
+
 // POST Routes
 router.post('/login', (req, res, next) => {
     const username = req.body.username;
