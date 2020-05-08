@@ -33,6 +33,20 @@ router.get('/companies/new', (req, res) => {
       });
   });
 
+  // SHOW - shows more info about each company
+router.get('/:id', function(req, res) {
+  // find company with provided ID
+  Company.findById(req.params.id).populate('comments').exec(function(err, foundCompany){
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(foundCompany);
+      // render show template with that company
+      res.render('companies/show', {company: foundCompany});
+    }
+  });
+});
+
 
   module.exports = router;
 
