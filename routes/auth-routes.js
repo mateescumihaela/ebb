@@ -28,15 +28,14 @@ router.get('/logout', (req, res, next) => {
     })
 });
 
-router.get('/users', (req, res) => {
-    const currentUser = req.session.currentUser;
-    res.render('users', {currentUser});
-    // res.render('users');
+router.get('/users/:username', (req, res) => {
+    let username = req.params.username;
+    // use username to pass it to a find function on mongoose
+    res.render('users', {username});
 });
 
-// router.get('/users/:username', (req, res) => {
 
-// })
+  
 
 // POST Routes
 router.post('/login', (req, res, next) => {
