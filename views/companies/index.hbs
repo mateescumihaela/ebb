@@ -18,30 +18,30 @@
 </a> --}}
 
  {{> header}}
+
+ <head>
+   <link rel="stylesheet" href="/stylesheets/cards.css"
+ </head>
 <div class='container'>
-  <header class='jumbotron'>
-    <h1>The Curated List</h1>
-    <h1>Of Female Friendly Companies</h1>
-    <p>blah blah blah</p>
-    <p><a class='btn-lg btn-primary' href='/companies/new'>Add Company</a></p>
-  </header>
-  <div class='row'>
-    <div class='col-lg-12'>
-      <h3>Most Popular Companies</h3>
-    </div>
-     {{#each allCompanies}}
-    <div class='col-md-4 col-sm-6' style='height:250px'>
-      <div class='thumbnail'>
-        <img src='{{ this.image }}'
-        <div class='caption'>
-          <h4>{{ this.name }}</h4>
-        </div>
-        <div class='caption'>
-          <a href='/companies/{{ this._id }}' class= 'btn btn-primary'>More Info</a>
-        </div>
-      </div>
-       {{/each}}
-    </div>
+  <div class='jumbotron jumbotron-fluid'>
+    <h1>Most Popular Companies</h1>
+    <h2>blah blah blah</h2>
+    <p><a class='btn btn-lg btn-success' href='/companies/new'>Add Company</a></p>
   </div>
+
+   <div class="cards-list">
+  
+   {{#each allCompanies}}
+  
+<div class="card">
+  <div class="card_image">
+    <img src="{{ this.image }}" />
+  </div>
+  <div class="card_title">
+    <a href='/companies/{{ this._id }}' class='btn btn-sm btn-success' <p> See company details </p> </a>
+  </div>
+</div>
+ {{/each}}
+
 </div>
 

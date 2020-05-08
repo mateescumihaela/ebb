@@ -33,18 +33,51 @@ router.get('/companies/new', (req, res) => {
       });
   });
 
-  // SHOW - shows more info about each company
-router.get('/:id', function(req, res) {
-  // find company with provided ID
-  Company.findById(req.params.id).populate('comments').exec(function(err, foundCompany){
+// GET Details Page
+router.get('/:id', function(req, res, next) {
+  Company.findOne({ _id: req.params.id }, (err, theCompany) => {
     if (err) {
-      console.log(err);
-    } else {
-      console.log(foundCompany);
-      // render show template with that company
-      res.render('companies/show', {company: foundCompany});
+      return next(err);
     }
+
+    res.render('companies/show', {
+      title: `${theCompany.name}`,
+    });
   });
+});
+
+// GET '/celebrities/:id/edit'
+router.get('/:id/edit', function(req, res, next) {
+  Celebrity.findOne({ _id: req.params.id }, (err, theCelebrity) => {
+    if (err) {
+      return next(err);
+    }
+
+    res.render('celebrities/edit', {
+      title: `Edit ${theCelebrity.name}`,
+      celebrity: theCelebrity,
+    });
+  });
+});
+
+// POST '/celebrities/:id'
+router.post('/:id', function(req, res, next) {
+  const updatedCelebrity = {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase,
+  };
+  Celebrity.update(
+    { _id: req.params.id },
+    updatedCelebrity,
+    (err, theCelebrity) => {
+      if (err) {
+        return next(err);
+      }
+
+      res.redirect('/celebrities');
+    },
+  );
 });
 
 
