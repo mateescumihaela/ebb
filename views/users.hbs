@@ -1,24 +1,33 @@
-<h1>Hello {{username}} </h1>
-{{!-- 
+<h1>Hello {{user.username}}</h1>
+
     <div class="user-details">
-      <img src="{{this.avatar}}" alt="">
-      <h4>{{this.firstName this.lastName}}</h4>
-      <p>
+    <p>
+    <label>Avatar</label>
+    <img src="#" alt="">
+    <input type="image" name="image">
+    </p>
+    <p>
     <label>First Name</label>
-    <input type="text" name="firstName" placeholder="Your first name">
+    <input type="text" name="firstName">
+    </p>
+    <p>
     <label>Last Name</label>
-    <input type="text" name="lastName" placeholder="Your last name">
+    <input type="text" name="lastName">
+    </p>
+    <p>
     <label>Date of Birth</label>
     <input type="date" name="dateOfBirth">
+    </p>
+    <p>
     <label>Age</label>
     <input type="number" name="age">
+    </p>
+    <p>
     <label>Username</label>
-    <input type="text" name="username" placeholder="Choose a username">
-    <label>Password</label>
-    <input type="password" name="password" placeholder="******">
+    <input type="text" name="username">
+    </p>
+    <p>
     <label>E-mail</label>
-    <input type="email" name="email" placeholder="Your e-mail">
-    <label>Avatar</label>
-    <input type="image" name="image">
-      </p>
-    </div> --}}
+    <input type="email" name="email">
+    </p>
+    </div>

@@ -5,6 +5,7 @@ const bcryptSalt = 10;
 
 const User = require('../models/user');
 
+
 // GET Routes
 router.get('/signup', (req, res, next) => {
     try {
@@ -28,10 +29,15 @@ router.get('/logout', (req, res, next) => {
     })
 });
 
-router.get('/users/:username', (req, res) => {
-    let username = req.params.username;
-    // use username to pass it to a find function on mongoose
-    res.render('users', {username});
+router.get('/:username', (req, res) => {
+    const userId = req.query.user_id;
+    User.findById(userId)
+    .populate('user')
+    .then(theUser => {
+        res.render('users', {user: theUser});
+    })
+    // // use username to pass it to a find function on mongoose
+    // res.render('users', {username});
 });
 
 
@@ -90,7 +96,7 @@ router.post('/signup', (req, res, next) => {
 
     // Making sure that user doesn't exist already
     User.findOne({ "username" : username})
-    .then( user => {
+    .then(user => {
     if (user) {
         res.render("auth/signup", {
         errorMessage: "The username already exists"
@@ -98,7 +104,7 @@ router.post('/signup', (req, res, next) => {
         return;
     }
 
-    User.create({firstName, lastName, dateOfBirth, age, username, password: hashPass, email})
+    User.create({firstName, lastName, dateOfBirth, age: getAge(), username, password: hashPass, email})
     .then(() => {
         res.redirect('/');
     })
