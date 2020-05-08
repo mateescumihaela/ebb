@@ -1,5 +1,5 @@
 body {
-    background-color: #000;
+    background-color: rgba(28, 28, 28, 1);
   }
   
   #landing-header {
@@ -53,7 +53,7 @@ body {
     animation-delay: 20s; 
   }
   .slideshow li:nth-child(4) { 
-    background-image: url(https://images.unsplash.com/photo-1524508762098-fd966ffb6ef9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
+    background-image: url(https://images.unsplash.com/photo-1506377711776-dbdc2f3c20d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
     animation-delay: 30s; 
   }
   .slideshow li:nth-child(5) { 
@@ -83,6 +83,22 @@ body {
     border-radius: 0px;
     margin:0 !important;
     padding: 0px !important;
-    z-index: 1; 
-    font-size: large;
+    z-index: 1;
     }
+
+    .nav.navbar-nav.navbar-right li a {
+      color: white;
+      font-size: 22px;
+  }
+
+  .container-fluid {
+    padding-right:0;
+    padding-left:0;
+    margin-right:auto;
+    margin-left:auto
+ }
+
+ .navbar-brand{
+  color: white;
+  font-size: 22px;
+ }

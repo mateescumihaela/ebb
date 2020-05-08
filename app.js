@@ -68,6 +68,7 @@ const auth = require('./routes/auth-routes');
 const index = require('./routes/index');
 const companies = require('./routes/companies');
 
+
 app.use('/', auth);
 app.use('/', index);
 app.use('/', companies);
