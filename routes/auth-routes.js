@@ -28,10 +28,15 @@ router.get('/logout', (req, res, next) => {
     })
 });
 
-router.get('/users/:username', (req, res) => {
+router.get('/users', (req, res) => {
     const currentUser = req.session.currentUser;
     res.render('users', {currentUser});
-})
+    // res.render('users');
+});
+
+// router.get('/users/:username', (req, res) => {
+
+// })
 
 // POST Routes
 router.post('/login', (req, res, next) => {
