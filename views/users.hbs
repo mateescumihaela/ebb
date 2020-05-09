@@ -1,33 +1,30 @@
-<h1>Hello {{user}}</h1>
+{{!-- {{> header}} --}}
 
-    <div class="user-details">
-    <p>
-    <label>Avatar</label>
-    <img src="{{this.imgPath}}" alt="">
-    <input type="image" name="image">
-    </p>
-    <p>
-    <label>First Name</label>
-    <input type="text" name="firstName">
-    </p>
-    <p>
-    <label>Last Name</label>
-    <input type="text" name="lastName">
-    </p>
-    <p>
-    <label>Date of Birth</label>
-    <input type="date" name="dateOfBirth">
-    </p>
-    <p>
-    <label>Age</label>
-    <input type="number" name="age">
-    </p>
-    <p>
-    <label>Username</label>
-    <input type="text" name="username">
-    </p>
-    <p>
-    <label>E-mail</label>
-    <input type="email" name="email">
+<h1>Hello {{currentUser.username}}</h1>
+
+<div class="user-details">
+  <div class="row">
+    <div class="picture col-sm-9">
+    <label>Avatar</label><br>
+    <img src="{{currentUser.imgPath}}" alt="" class="avatar"><br>
+    </div>
+  </div>
+    <div class="row">
+    <div class="details col-sm-12">
+    <p><br><label>Name: </label> <span>{{currentUser.firstName}} {{currentUser.lastName}}</span><br>
+    <label>Date of Birth: </label><span> {{currentUser.dateOfBirth}}</span><br>
+    <label>Age: </label><span> {{currentUser.age}}</span><br>
+    <label>Username: </label><span> {{currentUse.username}}</span><br>
+    <label>E-mail: </label><span> {{currentUser.email}}</span><br>
     </p>
     </div>
+  </div>
+</div>
+  <div class="user-interaction">
+    <div class="myComments col-sm-4">
+      <h2>My Comments</h2>
+    </div>
+    <div class="myVotes col-sm-4">
+      <h2>My Votes</h2>
+    </div>
+  </div>

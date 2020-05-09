@@ -29,13 +29,12 @@ router.get('/logout', (req, res, next) => {
 });
 
 router.get('/users/:username', (req, res) => {
-    const username = req.query.username;
-    User.findById(username)
-    .populate('user')
-    .then(user => {
-        console.log(user);
-        res.render('users', {user});
-    })
+    const currentUserId = req.session.currentUser._id;  
+    User.findById(currentUserId)
+        .then(currentUser => {
+            console.log('found', currentUser);
+            res.render('users', {currentUser});
+        })
 });
 
 
