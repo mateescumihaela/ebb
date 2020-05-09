@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+<br>
+<form action="/companies/{{_id}}" method="POST">
+  <label for="name">Company: 
+  </label> 
+  <input type="text" name="name" id="name" value="{{name}}">
+<br>
+<label for="industry">Industry: 
+  </label> 
+  <input type="text" name="industry" id="industry" value="{{industry}}">
+  <br>
+  <label for="size">Size: 
+  </label> 
+  <input type="text" name="size" id="size" value="{{size}}">
+<br>
+<button type="submit">Save</button>
+</form>

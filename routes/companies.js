@@ -20,6 +20,8 @@ router.get('/companies/new', (req, res) => {
     });
   });
 
+
+  // CREATE - add new company to DB
   router.post('/companies', (req, res, next) => {
     const { name, URL, image, description } = req.body;
     const newCompany = new Company({name, URL, image, description});
@@ -33,51 +35,50 @@ router.get('/companies/new', (req, res) => {
       });
   });
 
-// GET Details Page
-router.get('/:id', function(req, res, next) {
-  Company.findOne({ _id: req.params.id }, (err, theCompany) => {
-    if (err) {
-      return next(err);
-    }
 
-    res.render('companies/show', {
-      title: `${theCompany.name}`,
-    });
-  });
+// SHOW - shows more info about one company
+router.get('/companies/:id', async (req, res) => {
+  console.log(`route working`)
+  const { id } = req.params;
+  try {
+    const company = await Company.findById(id);
+    res.render('companies/show', company);
+  } catch (error) {
+    console.log(error);
+  }  
+});  
+
+
+router.post('/companies/:id/delete', async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    await Company.findByIdAndRemove(id);
+    console.log('successfully deleted');
+    res.redirect('/companies');
+  } catch (error) {
+    console.log(error);
+  }
 });
 
-// GET '/celebrities/:id/edit'
-router.get('/:id/edit', function(req, res, next) {
-  Celebrity.findOne({ _id: req.params.id }, (err, theCelebrity) => {
-    if (err) {
-      return next(err);
-    }
-
-    res.render('celebrities/edit', {
-      title: `Edit ${theCelebrity.name}`,
-      celebrity: theCelebrity,
-    });
-  });
+router.get(`/companies/:id/edit`, async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const company = await Company.findById(id);
+    res.render('company/edit', company);
+  } catch (error){
+    console.log(error);
+  }
 });
 
-// POST '/celebrities/:id'
-router.post('/:id', function(req, res, next) {
-  const updatedCelebrity = {
-    name: req.body.name,
-    occupation: req.body.occupation,
-    catchPhrase: req.body.catchPhrase,
-  };
-  Celebrity.update(
-    { _id: req.params.id },
-    updatedCelebrity,
-    (err, theCelebrity) => {
-      if (err) {
-        return next(err);
-      }
-
-      res.redirect('/celebrities');
-    },
-  );
+router.post('/companies/:id', async (req, res, next) => {
+  const { id } = req.params;
+  const company = req.body;
+  try {
+    await Company.findByIdAndUpdate(id, company);
+    res.redirect('/companies');
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 
