@@ -9,6 +9,12 @@ const companySchema = new Schema({
   description: String,
   size: String,
   noOfEmployees: Number,
+  user: {type: Schema.ObjectId, ref:'User'},
+  womenInMangementScore: Number,
+  genderPayGapScore: Number,
+  maternityLeaveScore: Number,
+  flexibleWorkScheduleScore: Number,
+  careerGrowthScore: Number
 },
 {
   timestamps: {

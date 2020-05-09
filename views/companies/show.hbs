@@ -1,8 +1,70 @@
+<head>
+     <link rel="stylesheet" href="/stylesheets/landing.css">
+</head>
 
-<h1>Here's how {{name}} scores</h1>
+<div class="container mt-2">
+    <div class="row ">
+        <div class="col-md-8 m-auto">
+            {{!-- {{#if msg}} --}}
+            <h1 class="text-center text-info my-3" style="font-size:2rem">
+            </h1>
+            {{!-- {{/if}} --}}
+            {{!-- {{#if name}} --}}
+            {{!-- <h1 class="text-center text-info my-3" style="font-size:2rem">
+                Keep it cool {{name}} <br />
+                You have already voted for {{votedfor}}
+            </h1> --}}
+            {{!-- {{/if}} --}}
+        </div>
+    </div>
+    
+    {{#if name}}
+    <table class="table table-hover table-dark">
+        <h2 class="text-warning my-4"><u>Here's how {{name}} scores</u></h2>
+        <thead>
+            <tr class="bg-primary">
+                <th scope="col">Criteria</th>
+                <th scope="col">Score</th>
+                <th scope="col">Total Votes</th>
+            </tr>
+        </thead>
+{{!-- {{#each name}} --}}
+        <tbody>
+            <tr>
+                <th scope="row">Women In Mangement</th>
+                <th scope="col">{{womenInMangementScore}}</th>
+                <th scope="row">Women In Mangement</th>
+            </tr>
+                <tr>
+                <th scope="row">Gender Pay Gap</th>
+                <th scope="col">{{genderPayGapScore}}</th>
+                <th scope="row">Women In Mangement</th>
+            </tr>
+                 <tr>
+                <th scope="row">Maternity Leave</th>
+                <th scope="col">{{maternityLeaveScore}}</th>
+                <th scope="row">Women In Mangement</th>
+            </tr>
+                        </tr>
+                 <tr>
+                <th scope="row">Flexible Work Schedule</th>
+                <th scope="col">{{flexibleWorkScheduleScore}}</th>
+                <th scope="row">Women In Mangement</th>
+            </tr>
+              <tr>
+                <th scope="row">Career Growth</th>
+                <th scope="col">{{careerGrowthScore}}</th>
+                <th scope="row">Women In Mangement</th>
+            </tr>
+       
+        </tbody>
+    {{!-- {{/each}} --}}
+
+    </table>
+    {{/if}}
+</div>
 <br>
-<h3>{{name}}</h3>
 
+<a href="/companies/{{this.id}}/vote">Submit your vote</a>
 <br>
-
 <a href="/companies">Back to companies list</a>

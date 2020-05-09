@@ -14,9 +14,9 @@ router.get('/companies', (req, res, next) => {
     });
 });
 
-router.get('/companies/new', (req, res) => {
-    res.render('companies/new', {
-      title: "Submit a new company"
+router.get('/companies/vote', (req, res) => {
+    res.render('companies/vote', {
+      title: "Vote for your favourite company"
     });
   });
 
@@ -60,11 +60,11 @@ router.post('/companies/:id/delete', async (req, res, next) => {
   }
 });
 
-router.get(`/companies/:id/edit`, async (req, res, next) => {
+router.get(`/companies/:id/vote`, async (req, res, next) => {
   const { id } = req.params;
   try {
     const company = await Company.findById(id);
-    res.render('company/edit', company);
+    res.render('companies/vote', company);
   } catch (error){
     console.log(error);
   }
