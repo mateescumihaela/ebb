@@ -1,0 +1,32 @@
+<h1>{{currentUser.username}} Profile Details</h1>
+
+<form action="/users-edit?user_id={{currentUser._id}}" method="POST" id="form" enctype="multipart/form-data"></form>
+    <div class="user-details">
+        <div class="row">
+            <div class="picture col-sm-9">
+                <label>Avatar</label><br>
+                <img src="{{currentUser.imgPath}}" alt="" class="avatar"><br>
+                <input type="file" name="photo" placeholder="Choose new photo"><br>
+            </div>
+            <div class="row">
+                <div class="details col-sm-12">
+                    <p><br>
+                        <label>First Name</label>
+                        <input type="text" name="firstName" value="{{currentUser.firstName}}"><br>
+                        <label>Last Name</label>
+                        <input type="text" name="lastName" value="{{currentUser.lastName}}"><br>
+                        <label>Date of Birth</label>
+                        <input type="date" name="dateOfBirth" value="{{currentUser.dateOfBirth}}"><br>
+                        <label>Age</label>
+                        <input type="number" name="age" value="{{currentUser.age}}"><br>
+                        <label>Username: </label><span> {{currentUser.username}}</span><br>
+                        <label>E-mail: </label><span> {{currentUser.email}}</span><br>
+                    </p>
+                    <div>
+                        <button type="submit">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

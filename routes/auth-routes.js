@@ -28,17 +28,21 @@ router.get('/logout', (req, res, next) => {
     })
 });
 
+router.get('/users-edit', (req, res) => {
+    const currentUserId = req.session.currentUser._id;
+    User.findById(currentUserId)
+        .then(currentUser => {
+            res.render('users-edit', {currentUser});
+        })
+});
+
 router.get('/users/:username', (req, res) => {
     const currentUserId = req.session.currentUser._id;  
     User.findById(currentUserId)
         .then(currentUser => {
-            console.log('found', currentUser);
-            res.render('users', {currentUser});
+            res.render('users-index', {currentUser});
         })
 });
-
-
-  
 
 // POST Routes
 router.post('/login', (req, res, next) => {
@@ -105,6 +109,17 @@ router.post('/signup', uploadCloud.single('photo'), (req, res, next) => {
         next(error)
     })
     });
+});
+
+router.post('/users-edit', (req, res) => {
+    const currentUserId = req.session.currentUser._id;
+    const imgPath = req.file.url;
+    const imgName = req.file.originalname;
+    const {firstName, lastName, dateOfBirth, age} = req.body;
+    User.updateOne({_id: currentUserId}, {$set: {firstName, lastName, dateOfBirth, age, imgPath, imgName}})
+        .then(() => {
+            res.redirect('users-index');
+        })
 });
 
  module.exports = router;

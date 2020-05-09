@@ -1,24 +1,30 @@
-<form action="/signup" method="POST" id="form" enctype="multipart/form-data">
-  <label>First Name</label>
-  <input type="text" name="firstName" placeholder="Your first name">
-  <label>Last Name</label>
-  <input type="text" name="lastName" placeholder="Your last name">
-  <label>Date of Birth</label>
-  <input type="date" name="dateOfBirth">
-  <label>Age</label>
-  <input type="number" name="age">
-  <label>Username</label>
-  <input type="text" name="username" placeholder="Choose a username">
-  <label>Password</label>
-  <input type="password" name="password" placeholder="******">
-  <label>E-mail</label>
-  <input type="email" name="email" placeholder="Your e-mail">
-  <label>Avatar</label>
-  <input type="file" name="photo">
-  {{#if errorMessage}}
-  <div class="error-message">
-    {{errorMessage}}
-    {{/if}}
-  </div>
-  <button type="submit">Create Account</button>
-</form>
+<div class="user-details-signup">
+  <form action="/signup" method="POST" id="form" enctype="multipart/form-data"></form>
+    <div class="row">
+      <p>
+        <label>First Name</label>
+        <input type="text" name="firstName" placeholder="Your first name"><br>
+        <label>Last Name</label>
+        <input type="text" name="lastName" placeholder="Your last name"><br>
+        <label>Date of Birth</label>
+        <input type="date" name="dateOfBirth"><br>
+        <label>Age</label>
+        <input type="number" name="age"><br>
+        <label>Username</label>
+        <input type="text" name="username" placeholder="Choose a username"><br>
+        <label>Password</label>
+        <input type="password" name="password" placeholder="******"><br>
+        <label>E-mail</label>
+        <input type="email" name="email" placeholder="Your e-mail"><br><br>
+        <label>Avatar</label><br>
+        <input type="file" name="photo"><br>
+        {{#if errorMessage}}
+          <div class="error-message">
+            {{errorMessage}}
+            {{/if}}
+          </div>
+        <button type="submit">Create Account</button>
+      </p>
+    </div>
+  </form>
+</div>
