@@ -2,9 +2,8 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const bcryptSalt = 10;
-
-const User = require('../models/user');
-
+const User = require('../models/user.js');
+const uploadCloud = require('../config/cloudinary.js');
 
 // GET Routes
 router.get('/signup', (req, res, next) => {
@@ -29,19 +28,21 @@ router.get('/logout', (req, res, next) => {
     })
 });
 
-router.get('/users/:username', (req, res) => {
-    const userId = req.query.user_id;
-    User.findById(userId)
-    .populate('user')
-    .then(theUser => {
-        res.render('users', {user: theUser});
-    })
-    // // use username to pass it to a find function on mongoose
-    // res.render('users', {username});
+router.get('/users-edit', (req, res) => {
+    const currentUserId = req.session.currentUser._id;
+    User.findById(currentUserId)
+        .then(currentUser => {
+            res.render('users-edit', {currentUser});
+        })
 });
 
-
-  
+router.get('/users/:username', (req, res) => {
+    const currentUserId = req.session.currentUser._id;  
+    User.findById(currentUserId)
+        .then(currentUser => {
+            res.render('users-index', {currentUser});
+        })
+});
 
 // POST Routes
 router.post('/login', (req, res, next) => {
@@ -75,14 +76,10 @@ router.post('/login', (req, res, next) => {
     })
 });
 
-router.post('/signup', (req, res, next) => {
-    const username = req.body.username;
-    const password = req.body.password;
-    const firstName = req.body.firstName;
-    const lastName = req.body.lastName;
-    const dateOfBirth = req.body.dateOfBirth;
-    const age = req.body.age;
-    const email = req.body.email;
+router.post('/signup', uploadCloud.single('photo'), (req, res, next) => {
+    const {username, password, firstName, lastName, dateOfBirth, age, email} = req.body;
+    const imgPath = req.file.url;
+    const imgName = req.file.originalname;
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
     
@@ -104,7 +101,7 @@ router.post('/signup', (req, res, next) => {
         return;
     }
 
-    User.create({firstName, lastName, dateOfBirth, age: getAge(), username, password: hashPass, email})
+    User.create({firstName, lastName, dateOfBirth, age, username, password: hashPass, email, imgPath, imgName})
     .then(() => {
         res.redirect('/');
     })
@@ -112,6 +109,17 @@ router.post('/signup', (req, res, next) => {
         next(error)
     })
     });
+});
+
+router.post('/users-edit', (req, res) => {
+    const currentUserId = req.session.currentUser._id;
+    const imgPath = req.file.url;
+    const imgName = req.file.originalname;
+    const {firstName, lastName, dateOfBirth, age} = req.body;
+    User.updateOne({_id: currentUserId}, {$set: {firstName, lastName, dateOfBirth, age, imgPath, imgName}})
+        .then(() => {
+            res.redirect('users-index');
+        })
 });
 
  module.exports = router;

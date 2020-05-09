@@ -1,0 +1,32 @@
+{{!-- {{> header}} --}}
+
+<h1>Hello {{currentUser.username}}</h1>
+
+<div class="user-details">
+  <div class="row">
+    <div class="picture col-sm-9">
+    <label>Avatar</label><br>
+    <img src="{{currentUser.imgPath}}" alt="" class="avatar"><br>
+    </div>
+  </div>
+    <div class="row">
+    <div class="details col-sm-12">
+    <p><br>
+    <label>Name: </label><span> {{currentUser.firstName}} {{currentUser.lastName}}</span><br>
+    <label>Date of Birth: </label><span> {{currentUser.dateOfBirth}}</span><br>
+    <label>Age: </label><span> {{currentUser.age}}</span><br>
+    <label>Username: </label><span> {{currentUser.username}}</span><br>
+    <label>E-mail: </label><span> {{currentUser.email}}</span><br>
+    </p>
+    <div><a href='/users-edit?user_id={{currentUser._id}}'>Edit your details</a></div>
+    </div>
+  </div>
+</div>
+  <div class="user-interaction">
+    <div class="myComments col-sm-4">
+      <h2>My Comments</h2>
+    </div>
+    <div class="myVotes col-sm-4">
+      <h2>My Votes</h2>
+    </div>
+  </div>

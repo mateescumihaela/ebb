@@ -1,8 +1,37 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font-size: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgba(71, 71, 71, 0.73);
+  color: white; }
 
 a {
   color: #00B7FF; }
+
+.avatar {
+  height: 150px;
+  width: 150px; }
+
+.user-details-signup {
+  font-size: 16px; }
+
+.user-details {
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: baseline;
+  align-content: stretch; }
+
+.picture {
+  align-self: auto; }
+
+.details {
+  align-self: center;
+  margin-left: 25px; }
+
+.user-interaction {
+  font-size: 16px;
+  padding-top: 20px; }
 
 /*# sourceMappingURL=style.css.map */
