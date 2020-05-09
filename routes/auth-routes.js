@@ -29,7 +29,7 @@ router.get('/logout', (req, res, next) => {
     })
 });
 
-router.get('/:username', (req, res) => {
+router.get('/users/:username', (req, res) => {
     const userId = req.query.user_id;
     User.findById(userId)
     .populate('user')
