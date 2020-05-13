@@ -19,6 +19,8 @@ a {
 }
 
 .user-details {
+  padding-left: 15px;
+  background-color: white;
   font-size: 16px;
   // color: white;
   display: flex;
@@ -27,6 +29,25 @@ a {
   justify-content: start;
   align-items: baseline;
   align-content: stretch;
+}
+
+.usernameH1{
+  color: white;
+}
+
+.user-interaction {
+  font-size: 16px;
+  padding-top: 20px;
+  .myComments{
+  padding-left: 15px;
+  background-color: white;
+  font-size: 16px;
+  }
+  .myVotes {
+    padding-left: 15px;
+    background-color: white;
+    font-size: 16px;
+  }
 }
 
 .picture {
@@ -38,7 +59,10 @@ a {
   margin-left: 25px;
 }
 
-.user-interaction {
+#form {
+  padding-left: 15px;
+  background-color: white;
   font-size: 16px;
-  padding-top: 20px;
+  border-radius: 5px;
+  padding: 25px;
 }

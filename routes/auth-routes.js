@@ -79,7 +79,7 @@ router.post('/login', (req, res, next) => {
 });
 
 router.post('/signup', uploadCloud.single('photo'), (req, res, next) => {
-    const {username, password, firstName, lastName, dateOfBirth, age, email} = req.body;
+    const {username, password, firstName, lastName, age, email} = req.body;
     const imgPath = req.file.url;
     const imgName = req.file.originalname;
     const salt = bcrypt.genSaltSync(bcryptSalt);
@@ -103,7 +103,7 @@ router.post('/signup', uploadCloud.single('photo'), (req, res, next) => {
         return;
     }
 
-    User.create({firstName, lastName, dateOfBirth, age, username, password: hashPass, email, imgPath, imgName})
+    User.create({firstName, lastName, age, username, password: hashPass, email, imgPath, imgName})
     .then(() => {
         res.redirect('/');
     })
@@ -121,8 +121,8 @@ router.post('/users-edit/:id', (req, res) => {
     // const imgPath = req.files['photo'][0].url;
     // const imgName = req.files['photo'].originalname;
     // }
-    const {firstName, lastName, dateOfBirth, age} = req.body;
-    User.updateOne({_id: currentUserId}, {$set: {firstName, lastName, dateOfBirth, age, 
+    const {firstName, lastName, age} = req.body;
+    User.updateOne({_id: currentUserId}, {$set: {firstName, lastName, age, 
         // imgPath, imgName
     }})
         .then(() => {

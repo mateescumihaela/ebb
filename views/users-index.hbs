@@ -1,11 +1,12 @@
-{{!-- {{> header}} --}}
+{{> header}}
 
-<h1>Hello {{currentUser.username}}</h1>
+<h1 class="usernameH1">Hello {{currentUser.username}}</h1>
 
 <div class="user-details">
   <div class="row">
     <div class="picture col-sm-9">
-    <label>Avatar</label><br>
+    {{!-- <label>Avatar</label> --}}
+    <br>
     <img src="{{currentUser.imgPath}}" alt="" class="avatar"><br>
     </div>
   </div>
