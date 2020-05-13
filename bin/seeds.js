@@ -1,7 +1,8 @@
 
 const mongoose = require('mongoose');
 const Company = require('../models/company');
- 
+const Comment = require('../models/comment');
+const Rating = require('../models/rating');
 const DB_NAME = 'ebb';
  
 mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
@@ -23,7 +24,8 @@ const company = [
     genderPayGapScore: 1,
     maternityLeaveScore: 1,
     flexibleWorkScheduleScore: 1,
-    careerGrowthScore: 1
+    careerGrowthScore: 1,
+    votes: 1
   },
   {
     name: 'Deloitte',
@@ -37,7 +39,8 @@ const company = [
     genderPayGapScore: 1,
     maternityLeaveScore: 1,
     flexibleWorkScheduleScore: 1,
-    careerGrowthScore: 1
+    careerGrowthScore: 1,
+    votes: 1
   },
   {
     name: 'Unilever',
@@ -51,14 +54,58 @@ const company = [
     genderPayGapScore: 1,
     maternityLeaveScore: 1,
     flexibleWorkScheduleScore: 1,
-    careerGrowthScore: 1
+    careerGrowthScore: 1,
+    votes: 1
   }
 ];
 
-Company.create(company, err => {
+/* Company.create(company, err => {
   if (err) {
     throw err;
   }
   console.log(`Created ${company.length} company`);
   mongoose.connection.close();
 });
+ */
+
+function seedDB() {
+  //Remove all companies
+  Company.remove({}, (err) => {
+       if(err){
+           console.log(err);
+       }
+       console.log("removed companies!");
+       Comment.remove({}, (err) => {
+           if(err){
+               console.log(err);
+           }
+           console.log("removed comments!");
+            //add companies
+           company.forEach((seed) => {
+               Company.create(seed, (err, company) => {
+                   if(err){
+                       console.log(err)
+                   } else {
+                       console.log("added a company");
+                       //create a comment
+                       Comment.create(
+                           {
+                               text: "This place is great",
+                               author: "Mihaela"
+                           }, (err, comment) => {
+                               if(err){
+                                   console.log(err);
+                               } else {
+                                   company.comments.push(comment);
+                                   company.save();
+                                   console.log("Created new comment");
+                               }
+                           });
+                   }
+               });
+           });
+       });
+   }); 
+   }
+
+   module.exports = seedDB;

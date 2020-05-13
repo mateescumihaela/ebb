@@ -10,11 +10,32 @@ const companySchema = new Schema({
   size: String,
   noOfEmployees: Number,
   user: {type: Schema.ObjectId, ref:'User'},
-  womenInMangementScore: Number,
-  genderPayGapScore: Number,
-  maternityLeaveScore: Number,
-  flexibleWorkScheduleScore: Number,
-  careerGrowthScore: Number
+  // womenInMangementScore: Number,
+  // genderPayGapScore: Number,
+  // maternityLeaveScore: Number,
+  // flexibleWorkScheduleScore: Number,
+  // careerGrowthScore: Number,
+  // votes: Number,
+  author: {
+    id: {
+       type: mongoose.Schema.Types.ObjectId,
+       ref: "User"
+    },
+    username: String
+ },
+ comments: [
+    {
+       type: mongoose.Schema.Types.ObjectId,
+       ref: "Comment"
+    }
+ ],
+ ratings: [
+    {
+       type: mongoose.Schema.Types.ObjectId,
+       ref: "Rating"
+    }
+ ],
+ rating: { type: Number, default: 0 }
 },
 {
   timestamps: {

@@ -18,9 +18,9 @@
         </div>
     </div>
     
-    {{#if name}}
+    {{!-- {{#if name}} --}}
     <table class="table table-hover table-dark">
-        <h2 class="text-warning my-4"><u>Here's how {{name}} scores</u></h2>
+        <h2 class="text-warning my-4"><u>Here's how {{company.name}} scores</u></h2>
         <thead>
             <tr class="bg-primary">
                 <th scope="col">Criteria</th>
@@ -33,38 +33,92 @@
             <tr>
                 <th scope="row">Women In Mangement</th>
                 <th scope="col">{{womenInMangementScore}}</th>
-                <th scope="row">Women In Mangement</th>
+                <th scope="row">{{votes}}</th>
             </tr>
                 <tr>
                 <th scope="row">Gender Pay Gap</th>
                 <th scope="col">{{genderPayGapScore}}</th>
-                <th scope="row">Women In Mangement</th>
+                <th scope="row">{{votes}}</th>
             </tr>
                  <tr>
                 <th scope="row">Maternity Leave</th>
                 <th scope="col">{{maternityLeaveScore}}</th>
-                <th scope="row">Women In Mangement</th>
+                <th scope="row">{{votes}}</th>
             </tr>
                         </tr>
                  <tr>
                 <th scope="row">Flexible Work Schedule</th>
                 <th scope="col">{{flexibleWorkScheduleScore}}</th>
-                <th scope="row">Women In Mangement</th>
+                <th scope="row">{{votes}}</th>
             </tr>
               <tr>
                 <th scope="row">Career Growth</th>
                 <th scope="col">{{careerGrowthScore}}</th>
-                <th scope="row">Women In Mangement</th>
+                <th scope="row">{{votes}}</th>
             </tr>
        
         </tbody>
     {{!-- {{/each}} --}}
 
     </table>
-    {{/if}}
+    {{!-- {{/if}} --}}
 </div>
 <br>
 
-<a href="/companies/{{this.id}}/vote">Submit your vote</a>
+<a href="/companies/{{company.id}}/vote">Submit your vote</a>
 <br>
 <a href="/companies">Back to companies list</a>
+
+<div class="well">
+        <div class="text-right">
+            <a class='btn btn-primary' href="/companies/{{company.id}}/comments/new">Add Comment</a>
+        </div>
+        <hr>
+
+      {{#each comment}}
+          <div class="row">
+            <div class="col-md-12">
+                <strong>{{comment.author.username}}</strong>
+                <span class="pull-right">10 days ago</span>
+                <p>
+                    {{comment.text}}
+                </p>
+                if (currentUser && comment.author.id.equals(currentUser._id)) {
+                <a class='btn btn-xs btn-primary'
+                  href="/companies/{{company.id}}/comments/{{this.id}}/edit">
+                  Edit
+                </a>
+                <form class='delete-form' action="/companies/{{company.id}}/comments/{{this.id}}?_method=DELETE" method='POST'>
+                  <input class="btn btn-xs btn-danger" type='submit' value='Delete'></input>
+                </form>
+                 }
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+
+            <form action="/companies/{{id}}" method="POST">
+                <div class="form-group">
+                    <label for="rating">Leave a rating:</label>
+                    <fieldset class="starability-basic form-group" id="rating">
+                      <input type="radio" id="first-rate5" name="rating[rating]" value="5" />
+                      <label for="first-rate5" title="Amazing">5 stars</label>
+                      <input type="radio" id="first-rate4" name="rating[rating]" value="4" />
+                      <label for="first-rate4" title="Very good">4 stars</label>
+                      <input type="radio" id="first-rate3" name="rating[rating]" value="3" />
+                      <label for="first-rate3" title="Average">3 stars</label>
+                      <input type="radio" id="first-rate2" name="rating[rating]" value="2" />
+                      <label for="first-rate2" title="Not good">2 stars</label>
+                      <input type="radio" id="first-rate1" name="rating[rating]" value="1" />
+                      <label for="first-rate1" title="Terrible">1 star</label>
+                    </fieldset>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-sm btn-primary">
+                        Submit rating!
+                    </button>
+                </div>
+            </form>

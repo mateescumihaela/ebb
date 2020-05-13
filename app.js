@@ -67,12 +67,14 @@ app.locals.title = 'EBB';
 const auth = require('./routes/auth-routes');
 const index = require('./routes/index');
 const companies = require('./routes/companies');
-
-
+const ratings = require('./routes/ratings');
+const comments = require('./routes/comments');
 
 app.use('/', auth);
 app.use('/', index);
 app.use('/', companies);
+app.use('/', ratings);
+app.use('/', comments);
 
 
 module.exports = app;
