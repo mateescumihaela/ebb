@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const bcryptSalt = 10;
 const User = require('../models/user.js');
 const uploadCloud = require('../config/cloudinary.js');
-var multer  = require('multer')
+const multer  = require('multer')
 
 // GET Routes
 router.get('/signup', (req, res, next) => {
