@@ -77,22 +77,22 @@
 
       {{#each company.comments}}
           <div class="row">
-            <div class="col-md-12">
-                <strong>{{this.author.username}}</strong>
-                <span class="pull-right"></span>
-                <p>
-                    {{this.text}}
-                </p>
-             
-                <a class='btn btn-xs btn-primary'
-                  href="/companies/{{company.id}}/comments/{{this.id}}/edit">
-                  Edit
-                </a>
-                <form class='delete-form' action="/companies/{{company.id}}/comments/{{this.id}}?_method=DELETE" method='POST'>
-                  <input class="btn btn-xs btn-danger" type='submit' value='Delete'></input>
-                </form>
-                 
-            </div>
+                <div class="col-md-12">
+                    <strong>{{this.author.username}}</strong>
+                    <span class="pull-right"></span>
+                    <p>
+                        {{this.text}}
+                    </p>
+                
+                    <a class='btn btn-xs btn-primary'
+                    href="/companies/{{company.id}}/comments/{{this.id}}/edit">
+                    Edit
+                    </a>
+                    <form class='delete-form' action="/companies/{{company.id}}/comments/{{this.id}}?_method=DELETE" method='POST'>
+                    <input class="btn btn-xs btn-danger" type='submit' value='Delete'></input>
+                    </form>
+                    
+                </div>
           </div>
         {{/each}}
       </div>

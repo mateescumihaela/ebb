@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router({mergeParams: true}); // pass through params
 const Company = require('../models/company');
 const Comment = require('../models/comment');
+const User = require('../models/user.js');
 
 
 // Comment NEW route
@@ -24,6 +25,7 @@ router.post('/companies/:id/comments', (req, res) => {
     //connect new comment to company
     //redirect to company display page
   //  console.log('im in the comments post route', req.params.id);
+    console.log('im the user', req.session.currentUser);
    Company.findById(req.params.id, (err, company) => {
        if(err){
            console.log(err);
@@ -36,6 +38,7 @@ router.post('/companies/:id/comments', (req, res) => {
                    //add username and id to comment
                   //  console.log('creating comment', req.session);  
                    comment.author.id = req.session.currentUser._id;
+                   comment.company = req.params.id;
                    comment.author.username = req.session.currentUser.username;
                    comment.text = req.body.text;
                    //save comment
