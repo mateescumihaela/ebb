@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const bcryptSalt = 10;
 const User = require('../models/user.js');
 const uploadCloud = require('../config/cloudinary.js');
-var multer  = require('multer')
+const multer  = require('multer')
 
 // GET Routes
 router.get('/signup', (req, res, next) => {
@@ -113,9 +113,9 @@ router.post('/signup', uploadCloud.single('photo'), (req, res, next) => {
     });
 });
 
-router.post('/users-edit/:_id', (req, res) => {
+router.post('/users-edit/:id', (req, res) => {
     console.log('working edit');
-    console.log(req.body);
+    console.log('body', req.body);
     const currentUserId = req.session.currentUser._id;
     // if (req.file) {
     // const imgPath = req.files['photo'][0].url;
@@ -126,7 +126,7 @@ router.post('/users-edit/:_id', (req, res) => {
         // imgPath, imgName
     }})
         .then(() => {
-            res.redirect('users-index');
+            res.redirect('/users/:username');
         })
 });
 
