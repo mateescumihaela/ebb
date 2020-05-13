@@ -23,6 +23,7 @@ router.post('/companies/:id/comments', (req, res) => {
     //create new comment
     //connect new comment to company
     //redirect to company display page
+  //  console.log('im in the comments post route', req.params.id);
    Company.findById(req.params.id, (err, company) => {
        if(err){
            console.log(err);
@@ -33,8 +34,10 @@ router.post('/companies/:id/comments', (req, res) => {
                    console.log(err);
                } else {
                    //add username and id to comment
-                   comment.author.id = req.user._id;
-                   comment.author.username = req.user.username;
+                  //  console.log('creating comment', req.session);  
+                   comment.author.id = req.session.currentUser._id;
+                   comment.author.username = req.session.currentUser.username;
+                   comment.text = req.body.text;
                    //save comment
                    comment.save();
                    company.comments.push(comment);
