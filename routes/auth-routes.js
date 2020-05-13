@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const bcryptSalt = 10;
 const User = require('../models/user.js');
 const uploadCloud = require('../config/cloudinary.js');
+var multer  = require('multer')
 
 // GET Routes
 router.get('/signup', (req, res, next) => {
@@ -32,6 +33,7 @@ router.get('/users-edit', (req, res) => {
     const currentUserId = req.session.currentUser._id;
     User.findById(currentUserId)
         .then(currentUser => {
+            console.log(currentUser)
             res.render('users-edit', {currentUser});
         })
 });
@@ -111,12 +113,18 @@ router.post('/signup', uploadCloud.single('photo'), (req, res, next) => {
     });
 });
 
-router.post('/users-edit', (req, res) => {
+router.post('/users-edit/:_id', (req, res) => {
+    console.log('working edit');
+    console.log(req.body);
     const currentUserId = req.session.currentUser._id;
-    const imgPath = req.file.url;
-    const imgName = req.file.originalname;
+    // if (req.file) {
+    // const imgPath = req.files['photo'][0].url;
+    // const imgName = req.files['photo'].originalname;
+    // }
     const {firstName, lastName, dateOfBirth, age} = req.body;
-    User.updateOne({_id: currentUserId}, {$set: {firstName, lastName, dateOfBirth, age, imgPath, imgName}})
+    User.updateOne({_id: currentUserId}, {$set: {firstName, lastName, dateOfBirth, age, 
+        // imgPath, imgName
+    }})
         .then(() => {
             res.redirect('users-index');
         })
