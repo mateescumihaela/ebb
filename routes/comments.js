@@ -16,6 +16,7 @@ router.get('/companies/:id/comments/new', (req, res) => {
 	});
 });
 
+
 // Comment CREATE route
 router.post('/companies/:id/comments', (req, res) => {
     //lookup company using ID
@@ -35,7 +36,7 @@ router.post('/companies/:id/comments', (req, res) => {
                    comment.author.id = req.user._id;
                    comment.author.username = req.user.username;
                    //save comment
-                   company.save();
+                   comment.save();
                    company.comments.push(comment);
                    company.save();
                    res.redirect('/companies/' + company._id);
@@ -43,7 +44,6 @@ router.post('/companies/:id/comments', (req, res) => {
            });
        }
    });
-
 });
 
 // Comment EDIT route
@@ -74,7 +74,6 @@ router.delete('/companies/:id/comments/:comment_id', (req, res) => {
         if(err){
             res.redirect('back');
         }else{
-            req.flash('success', 'Comment deleted');
             res.redirect('/companies/'+req.params.id);
         }
     });

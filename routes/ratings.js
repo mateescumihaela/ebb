@@ -1,7 +1,7 @@
-const express = require("express");
+const express = require('express');
 const router  = express.Router({mergeParams: true});
-const Company = require("../models/company");
-const Rating = require("../models/rating");
+const Company = require('../models/company');
+const Rating = require('../models/rating');
 
 
 router.post('/', (req, res) => {
@@ -18,10 +18,10 @@ router.post('/', (req, res) => {
 				  rating.save();
 					company.ratings.push(rating);
 					company.save();
-					req.flash("success", "Successfully added rating");
+					req.flash('success', 'Successfully added rating');
 				});
 		} else {
-				req.flash("error", "Please select a rating");
+				req.flash('error', 'Please select a rating');
 		}
 		res.redirect('/companies/' + company._id);
 	});
