@@ -26,6 +26,18 @@
   <div class="user-interaction">
     <div class="myComments col-sm-4">
       <h2>My Comments</h2>
+            {{#each comments}}
+          <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        {{this.text}}
+                    </p>        
+                    <p>
+                      {{this.company.name}}
+                    </p>
+                </div>
+          </div>
+        {{/each}}
     </div>
     <div class="myVotes col-sm-4">
       <h2>My Votes</h2>

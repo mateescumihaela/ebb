@@ -3,6 +3,8 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const bcryptSalt = 10;
 const User = require('../models/user.js');
+const Company = require('../models/company');
+const Comment = require('../models/comment');
 const uploadCloud = require('../config/cloudinary.js');
 const multer  = require('multer')
 
@@ -42,7 +44,12 @@ router.get('/users/:username', (req, res) => {
     const currentUserId = req.session.currentUser._id;  
     User.findById(currentUserId)
         .then(currentUser => {
-            res.render('users-index', {currentUser});
+            Comment.find({'author.id': currentUserId})
+                .populate('company')
+
+                .then(comments => {
+                    res.render('users-index', {currentUser, comments});
+                })
         })
 });
 
