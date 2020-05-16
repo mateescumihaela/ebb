@@ -1,3 +1,5 @@
+ {{> header}}
+
 <div class="container mt-2">
     <div class="row ">
         <div class="col-md-8 m-auto">
@@ -28,8 +30,8 @@
         <tbody>
             <tr>
                 <th scope="row">{{company.name}}</th>
-                <th scope="col">{{company.rating}}</th>
-                <th scope="row">{{company.ratings}}</th>
+                <th scope="col">{{scoreAverage}}</th>
+                <th scope="row">{{scoreLength}}</th>
             </tr>
 {{!--                 <tr>
                 <th scope="row">Gender Pay Gap</th>
@@ -97,7 +99,7 @@
 
 <br>
 <br>
-  <form action="/companies/{{company.id}}/comments" method="POST"></form>
+  
 
             <form action="/companies/{{company.id}}/ratings" method="POST">
                 <div class="form-group">

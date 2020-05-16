@@ -42,21 +42,22 @@ router.get('companies/new', (req, res) => {
        if(err){
            console.log(err);
        } else {
+         let scoreLength = 0;
+         let scoreAverage = 0;
            if(foundCompany.ratings.length > 0) {
-             const ratings = [];
-             const length = foundCompany.ratings.length;
-             foundCompany.ratings.forEach((rating) => { 
-               ratings.push(rating.rating) 
-             });
-             const rating = ratings.reduce((total, element) => {
-               return total + element;
-             });
-             foundCompany.rating = rating / length;
-             foundCompany.save();
+         
+            scoreLength = foundCompany.ratings.length;
+           
+             const totalRating = foundCompany.ratings.reduce((total, rating) => {
+               return total + rating.score;
+             }, 0);
+             console.log('total rating', totalRating);
+             scoreAverage = totalRating / scoreLength;
+         
            }
            console.log('Ratings:', foundCompany.ratings);
            console.log('Rating:', foundCompany.rating);
-           res.render('companies/show', {company: foundCompany});
+           res.render('companies/show', {company: foundCompany, scoreLength, scoreAverage});
        }
    });
  });

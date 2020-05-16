@@ -34,8 +34,7 @@ const companySchema = new Schema({
        type: mongoose.Schema.Types.ObjectId,
        ref: "Rating"
     }
- ],
- rating: { type: Number, default: 0 }
+ ]
 },
 {
   timestamps: {
