@@ -42,7 +42,7 @@ const companySchema = new Schema({
     updatedAt: 'updatedAt'
   }
 }
-);
+) ;
 
 const Company = mongoose.model('Company', companySchema);
 
