@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Company = require('../models/company');
 
-
 //Homepage
 router.get('/companies', (req, res, next) => {
+  const currentUser = req.session.currentUser;
   Company.find()
     .then(allCompaniesFromDB => { // <- Backend requesting data from Mongo 
-      res.render('companies', { allCompanies: allCompaniesFromDB }); 
+      res.render('companies', { allCompanies: allCompaniesFromDB, currentUser }); 
     })
     .catch(error => {
       next(error);
@@ -17,8 +17,10 @@ router.get('/companies', (req, res, next) => {
 
 
  router.get('/companies/new', (req, res) => {
+  const currentUser = req.session.currentUser;
     res.render('companies/new', {
-      title: 'Submit a new company'
+      title: 'Submit a new company',
+      currentUser
     });
   }); 
   router.post('/companies', (req, res, next) => {
@@ -32,7 +34,8 @@ router.get('/companies', (req, res, next) => {
 
 //NEW - show form to create new company
 router.get('companies/new', (req, res) => {
-  res.render('/companies'); 
+  const currentUser = req.session.currentUser;
+  res.render('/companies', currentUser); 
 }); 
 
 // SHOW - shows more info about one company
@@ -42,6 +45,7 @@ router.get('companies/new', (req, res) => {
        if(err){
            console.log(err);
        } else {
+        const currentUser = req.session.currentUser;
          let scoreLength = 0;
          let scoreAverage = 0;
            if(foundCompany.ratings.length > 0) {
@@ -57,7 +61,7 @@ router.get('companies/new', (req, res) => {
            }
            console.log('Ratings:', foundCompany.ratings);
            console.log('Rating:', foundCompany.rating);
-           res.render('companies/show', {company: foundCompany, scoreLength, scoreAverage});
+           res.render('companies/show', {company: foundCompany, scoreLength, scoreAverage, currentUser});
        }
    });
  });
@@ -66,7 +70,8 @@ router.get('companies/new', (req, res) => {
 // EDIT Company ROUTE
 router.get('companies/:id/edit', (req, res) => {
   Company.findById(req.params.id, (err, foundCompany) => {
-      res.render('companies/edit', {company: foundCompany});
+    const currentUser = req.session.currentUser;
+      res.render('companies/edit', {company: foundCompany, currentUser});
   });
 });
 

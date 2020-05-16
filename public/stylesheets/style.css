@@ -32,6 +32,8 @@ a {
   font-size: 16px; }
 
 .user-details {
+  border-radius: 5px;
+  margin: auto 25px;
   padding-left: 15px;
   background-color: white;
   font-size: 16px;
@@ -42,18 +44,26 @@ a {
   align-items: baseline;
   align-content: stretch; }
 
-.usernameH1 {
+.newH1 {
   color: white; }
 
+.usernameH1 {
+  color: white;
+  margin-top: 10px;
+  margin-left: 25px; }
+
 .user-interaction {
+  margin: auto 50px;
   font-size: 16px;
   padding-top: 20px; }
   .user-interaction .myComments {
-    padding-left: 15px;
+    border-radius: 5px;
+    border: solid black 3px;
     background-color: white;
     font-size: 16px; }
   .user-interaction .myVotes {
-    padding-left: 15px;
+    border-radius: 5px;
+    border: solid black 3px;
     background-color: white;
     font-size: 16px; }
 

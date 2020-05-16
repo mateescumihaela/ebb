@@ -1,5 +1,3 @@
- {{> header}}
-
 <div class="container mt-2">
     <div class="row ">
         <div class="col-md-8 m-auto">
@@ -63,17 +61,12 @@
                 <th scope="col">{{careerGrowthScore}}</th>
                 <th scope="row">{{votes}}</th>
             </tr> --}}
-       
         </tbody>
     {{!-- {{/each}} --}}
-
     </table>
     {{!-- {{/if}} --}}
 </div>
 <br>
-
-
-
 {{!-- <a href="/companies/{{company.id}}/vote">Submit your vote</a>
 <br>
 <a href="/companies">Back to companies list</a> --}}
@@ -84,15 +77,15 @@
 
 
 <div class="well">
-        <div class="text-right">
-            <a class='btn btn-primary' href="/companies/{{company.id}}/comments/new">Add Comment</a>
-        </div>
-        <hr>
+    <div class="text-right">
+        <a class='btn btn-primary' href="/companies/{{company.id}}/comments/new">Add Comment</a>
+    </div>
+    <hr>
 
-      {{#each company.comments}}
-          <div class="row">
-                <div class="col-md-12">
-                    <strong>By: {{this.author.username}}</strong>
+    {{#each company.comments}}
+        <div class="row">
+            <div class="col-md-12">
+                <strong>By: {{this.author.username}}</strong>
                     <span class="pull-right"></span>
                     <p>
                         Comment: {{this.text}}
@@ -103,19 +96,19 @@
                     </a>
                     <form class='delete-form' action="/companies/{{company.id}}/comments/{{this.id}}?_method=DELETE" method='POST'>
                     <input class="btn btn-xs btn-danger" type='submit' value='Delete'></input> --}}
-                    </form>
-                    
-                </div>
-          </div>
-        {{/each}}
-      </div>
-    </div>
-  </div>
+                    {{!-- </form> --}}
+             </div>
+        </div>
+    {{/each}}
 </div>
+    {{!-- </div>
+  </div>
+</div> --}}
 
 <br>
 <br>
   
+<<<<<<< HEAD
 
 <form action="/companies/{{company.id}}/ratings" method="POST">
     <div class="form-group">
@@ -137,3 +130,27 @@
         <button class="btn btn-sm btn-primary">Submit rating!</button>
         </div>
         </form>
+=======
+<form action="/companies/{{company.id}}/ratings" method="POST">
+    <div class="form-group">
+        <label for="rating">Rating Tester</label>
+        <fieldset class="starability-basic form-group" id="rating">
+            <input type="radio" id="first-rate5" name="rating" value="5" />
+            <label for="first-rate5" title="Amazing">5</label>
+            <input type="radio" id="first-rate4" name="rating" value="4" />
+            <label for="first-rate4" title="Very good">4</label>
+            <input type="radio" id="first-rate3" name="rating" value="3" />
+            <label for="first-rate3" title="Average">3</label>
+            <input type="radio" id="first-rate2" name="rating" value="2" />
+            <label for="first-rate2" title="Not good">2</label>
+            <input type="radio" id="first-rate1" name="rating" value="1" />
+            <label for="first-rate1" title="Terrible">1</label>
+        </fieldset>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-sm btn-primary">
+            Submit rating!
+        </button>
+    </div>
+</form>
+>>>>>>> d6ac49bb99531bfc6355cfc2c5bced9d59742073
