@@ -2,6 +2,9 @@
   "name": "ebb",
   "version": "1.0.0",
   "main": "index.js",
+  "engines":{
+    "node": "10.15.3"
+  }
   "scripts": {
     "start": "node ./bin/www",
     "start-dev": "nodemon ./bin/www",
