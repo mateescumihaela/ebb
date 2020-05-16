@@ -127,8 +127,6 @@ router.post('/signup', uploadCloud.single('photo'), (req, res, next) => {
 });
 
 router.post('/users-edit/:id', (req, res) => {
-    console.log('working edit');
-    console.log('body', req.body);
     const currentUserId = req.session.currentUser._id;
     // if (req.file) {
     // const imgPath = req.files['photo'][0].url;
