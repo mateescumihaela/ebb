@@ -5,6 +5,7 @@ const bcryptSalt = 10;
 const User = require('../models/user.js');
 const Company = require('../models/company.js');
 const Comment = require('../models/comment.js');
+const Rating = require('../models/rating.js');
 const uploadCloud = require('../config/cloudinary.js');
 const multer  = require('multer');
 
@@ -41,15 +42,22 @@ router.get('/users-edit', (req, res) => {
 });
 
 router.get('/users/:username', (req, res) => {
-    const currentUserId = req.session.currentUser._id;  
+    const currentUserId = req.session.currentUser._id;
     User.findById(currentUserId)
         .then(currentUser => {
             Comment
                 .find({'author.id': currentUserId})
                 .populate('company')
                 .then(comments => {
-                    console.log(comments);
-                    res.render('users-index', {currentUser, comments});
+                    Rating
+                    .find({'author': currentUserId})
+                    .populate('company')
+                    .then(ratings => {
+                        console.log('this is the rating', ratings);
+                        res.render('users-index', {currentUser, 
+                            comments, 
+                            ratings});
+                    })
                 })
         })
 });
@@ -58,7 +66,6 @@ router.get('/users/:username', (req, res) => {
 router.post('/login', (req, res, next) => {
     const username = req.body.username;
     const password = req.body.password;
-
     if (!username || !password) {
         res.render('auth/login', {
             errorMessage: "Please enter both username and password to login"

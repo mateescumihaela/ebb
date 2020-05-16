@@ -25,33 +25,43 @@
   <div class="row">
     <div class="myComments col-sm-8">
       <h2>My Comments</h2>
+                <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Company</th>
+                <th scope="col">Comment</th>
+                <th scope="col">Posted on</th>
+              </tr>
+            </thead>
         {{#each comments}}
+            <tbody>
+              <tr>
+                <th scope="row">{{@index}}</th>
+                <td>{{this.company.name}}</td>
+                <td>{{this.text}}</td>
+                <td>{{this.createdAt}}</td>
+              </tr>
+            </tbody>
+        {{/each}}
+      </table>
+    </div>
+    <div class="myVotes col-sm-4">
+      <h2>My Votes</h2>
+            {{#each ratings}}
           <div class="row align-items-center">
             <div class="company-name col-sm">    
               <h3>{{this.company.name}}</h3>
             </div>
             <div class="col-sm">
               <p>
-                {{this.text}}
-              </p> 
-            </div>
-          </div>
-        {{/each}}
-    </div>
-    <div class="myVotes col-sm-4">
-      <h2>My Votes</h2>
-            {{#each rating}}
-          <div class="row">
-            <div class="col-md-12">
-              <p>
                 {{this.score}}
-              </p>        
-              <p>
-                {{this.company.name}}
-              </p>
+              </p> 
             </div>
           </div>
         {{/each}}
     </div>
   </div>
 </div>
+
+
