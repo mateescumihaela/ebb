@@ -43,6 +43,7 @@ router.get('/users-edit', (req, res) => {
 
 router.get('/users/:username', (req, res) => {
     const currentUserId = req.session.currentUser._id;
+
     User.findById(currentUserId)
         .then(currentUser => {
             Comment
@@ -53,10 +54,7 @@ router.get('/users/:username', (req, res) => {
                     .find({'author': currentUserId})
                     .populate('company')
                     .then(ratings => {
-                        console.log('this is the rating', ratings);
-                        res.render('users-index', {currentUser, 
-                            comments, 
-                            ratings});
+                        res.render('users-index', {currentUser, comments, ratings});
                     })
                 })
         })

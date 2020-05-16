@@ -3,21 +3,27 @@
 <div class="user-details">
   <div class="row">
     <div class="picture col-sm-9">
-    {{!-- <label>Avatar</label> --}}
-    <br>
-    <img src="{{currentUser.imgPath}}" alt="" class="avatar"><br>
-    </div>
-  </div>
-    <div class="row">
-    <div class="details col-sm-12">
-    <p><br>
-    <label>Name: </label><span> {{currentUser.firstName}} {{currentUser.lastName}}</span><br>
-    <label>Date of Birth: </label><span> {{currentUser.dateOfBirth}}</span><br>
-    <label>Age: </label><span> {{currentUser.age}}</span><br>
-    <label>Username: </label><span> {{currentUser.username}}</span><br>
-    <label>E-mail: </label><span> {{currentUser.email}}</span><br>
-    </p>
-    <div><a href='/users-edit?user_id={{currentUser._id}}'>Edit your details</a></div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Avatar</th>
+            <th scope="col">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><img src="{{currentUser.imgPath}}" alt="" class="avatar"></th>
+            <td>
+              <label><b>Name:</b> </label><span> {{currentUser.firstName}} {{currentUser.lastName}}</span><br>
+              {{!-- <label><b>Date of Birth:</b> </label><span> {{currentUser.dateOfBirth}}</span><br> --}}
+              <label><b>Age:</b> </label><span> {{currentUser.age}}</span><br>
+              <label><b>Username:</b> </label><span> {{currentUser.username}}</span><br>
+              <label><b>E-mail:</b> </label><span> {{currentUser.email}}</span><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <a href='/users-edit?user_id={{currentUser._id}}'>Edit your details</a>
     </div>
   </div>
 </div>
@@ -25,43 +31,49 @@
   <div class="row">
     <div class="myComments col-sm-8">
       <h2>My Comments</h2>
-                <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Company</th>
-                <th scope="col">Comment</th>
-                <th scope="col">Posted on</th>
-              </tr>
-            </thead>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Company</th>
+            <th scope="col">Comment</th>
+            <th scope="col">Posted on</th>
+          </tr>
+        </thead>
         {{#each comments}}
-            <tbody>
-              <tr>
-                <th scope="row">{{@index}}</th>
-                <td>{{this.company.name}}</td>
-                <td>{{this.text}}</td>
-                <td>{{this.createdAt}}</td>
-              </tr>
-            </tbody>
+          <tbody>
+            <tr>
+              <th scope="row">{{inc @index}}</th>
+              <td>{{this.company.name}}</td>
+              <td>{{this.text}}</td>
+              <td>{{prettifyDate createdAt}}</td>
+            </tr>
+          </tbody>
         {{/each}}
       </table>
     </div>
     <div class="myVotes col-sm-4">
       <h2>My Votes</h2>
-            {{#each ratings}}
-          <div class="row align-items-center">
-            <div class="company-name col-sm">    
-              <h3>{{this.company.name}}</h3>
-            </div>
-            <div class="col-sm">
-              <p>
-                {{this.score}}
-              </p> 
-            </div>
-          </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Company</th>
+            <th scope="col">Votes</th>
+            <th scope="col">Posted on</th>
+          </tr>
+        </thead>
+        {{#each ratings}}
+          <tbody>
+            <tr>
+              <th scope="row">{{inc @index}}</th>
+              <td>{{this.company.name}}</td>
+              <td>{{this.score}}</td>
+              <td>{{prettifyDate createdAt}}</td>
+            </tr>
+          </tbody>
         {{/each}}
+      </table>
     </div>
   </div>
 </div>
-
-
