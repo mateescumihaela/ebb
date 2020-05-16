@@ -113,4 +113,92 @@ a {
   margin-left: 150px;
   margin-right: 150px; }
 
+.pie-wrapper {
+  display: inline-block;
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  border: 10px  solid #ddd;
+  border-radius: 50%; }
+
+.pie-wrapper .pie {
+  clip: rect(0, 200px, 200px, 100px);
+  height: 200px;
+  position: absolute;
+  width: 200px;
+  margin: -10px 0 0 -10px; }
+
+.pie-wrapper .pie .half-circle {
+  border: 10px solid #3498db;
+  clip: rect(0, 100px, 200px, 0);
+  height: 200px;
+  position: absolute;
+  width: 200px;
+  border-radius: 50%; }
+
+.pie-wrapper .label {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  display: block;
+  width: 180px;
+  height: 180px;
+  color: #7f8c8d;
+  cursor: default;
+  font-size: 3em;
+  line-height: 3em;
+  text-align: center;
+  border-radius: 50%; }
+
+.pie-wrapper .label em {
+  padding-bottom: 20px;
+  color: #bdc3c7;
+  font-size: .45em;
+  vertical-align: super;
+  font-style: normal; }
+
+.pie-wrapper .shadow {
+  width: 100%;
+  height: 100%;
+  border: 20px solid #bdc3c7;
+  border-radius: 50%; }
+
+.pie-wrapper.progress-half .pie .right-side {
+  display: none; }
+
+.pie-wrapper.progress-half .pie .half-circle {
+  border-style: solid;
+  border-image: -webkit-linear-graident(#ff0000, #ffff00); }
+
+.pie-wrapper.progress-half .pie .left-side, .pie-wrapper.progress-full .pie .left-side {
+  -webkit-transform: rotate(165deg);
+  -moz-transform: rotate(165deg);
+  transform: rotate(165deg); }
+
+.pie-wrapper.progress-full .pie .left-side {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  transform: rotate(180deg); }
+
+.pie-wrapper.progress-full .pie {
+  clip: inherit; }
+
+.pie-wrapper.progress-full .pie .right-side {
+  display: block; }
+
+.pie-wrapper.progress-full {
+  margin-left: 100px; }
+
+.pie-wrapper.progress-full .pie .right-side {
+  -webkit-transform: rotate(300deg);
+  -moz-transform: rotate(300deg);
+  transform: rotate(300deg); }
+
+div, div:before, div:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
 /*# sourceMappingURL=style.css.map */
