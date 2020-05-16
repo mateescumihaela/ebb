@@ -35,7 +35,7 @@ const companySchema = new Schema({
        ref: "Rating"
     }
  ],
- rating: { type: Number, default: 0 }
+rating: { type: Number, default: 0 }
 },
 {
   timestamps: {
@@ -43,7 +43,7 @@ const companySchema = new Schema({
     updatedAt: 'updatedAt'
   }
 }
-);
+) ;
 
 const Company = mongoose.model('Company', companySchema);
 
