@@ -1,5 +1,3 @@
-{{> header}}
-
 <h1 class="usernameH1">Hello {{currentUser.username}}</h1>
 
 <div class="user-details">
@@ -23,23 +21,37 @@
     </div>
   </div>
 </div>
-  <div class="user-interaction">
-    <div class="myComments col-sm-4">
+<div class="user-interaction">
+  <div class="row">
+    <div class="myComments col-sm-6">
       <h2>My Comments</h2>
-            {{#each comments}}
+        {{#each comments}}
           <div class="row">
-                <div class="col-md-12">
-                    <p>
-                        {{this.text}}
-                    </p>        
-                    <p>
-                      {{this.company.name}}
-                    </p>
-                </div>
+            <div class="col-md-12">
+              <p>
+                {{this.text}}
+              </p>        
+              <p>
+                {{this.company.name}}
+              </p>
+            </div>
           </div>
         {{/each}}
     </div>
-    <div class="myVotes col-sm-4">
+    <div class="myVotes col-sm-6">
       <h2>My Votes</h2>
+            {{#each rating}}
+          <div class="row">
+            <div class="col-md-12">
+              <p>
+                {{this.score}}
+              </p>        
+              <p>
+                {{this.company.name}}
+              </p>
+            </div>
+          </div>
+        {{/each}}
     </div>
   </div>
+</div>

@@ -1,24 +1,23 @@
- <head>
-   <link rel="stylesheet" href="/stylesheets/cards.css"
- </head>
- {{> header}}
-  <div class="jumbotron fluid">
-    <div class="container">
-        <h1 class="mb-0 display-2 hero-title">Most Popular Companies</h1>
-        <h4 class="sub-title">blah blah blah</h4>
-        <a class="btn primary btn-lg" href="/companies/new">Submit a Company</a>
+<head>
+  <link rel="stylesheet" href="/stylesheets/cards.css">
+</head>
+<div class="jumbotron fluid">
+  <div class="container">
+    <h1 class="mb-0 display-2 hero-title">Most Popular Companies</h1>
+    <h4 class="sub-title">blah blah blah</h4>
+    <a class="btn primary btn-lg" href="/companies/new">Submit a Company</a>
+  </div>
+</div>
+<div class="cards-list">
+  {{#each allCompanies}}
+    <div class="card">
+      <div class="card_image">
+        <img src="{{ this.image }}"/>
+      </div>
+      <div class="card_title">
+        <a href='/companies/{{ this._id }}' class='btn btn-sm btn-success' <p> See company details </p> </a>
+      </div>
     </div>
-</div>
-   <div class="cards-list">
-   {{#each allCompanies}}
-<div class="card">
-  <div class="card_image">
-    <img src="{{ this.image }}" />
-  </div>
-  <div class="card_title">
-    <a href='/companies/{{ this._id }}' class='btn btn-sm btn-success' <p> See company details </p> </a>
-  </div>
-</div>
- {{/each}}
+  {{/each}}
 </div>
 

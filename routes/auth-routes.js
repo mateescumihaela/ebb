@@ -6,7 +6,7 @@ const User = require('../models/user.js');
 const Company = require('../models/company');
 const Comment = require('../models/comment');
 const uploadCloud = require('../config/cloudinary.js');
-const multer  = require('multer')
+const multer  = require('multer');
 
 // GET Routes
 router.get('/signup', (req, res, next) => {
@@ -46,7 +46,6 @@ router.get('/users/:username', (req, res) => {
         .then(currentUser => {
             Comment.find({'author.id': currentUserId})
                 .populate('company')
-
                 .then(comments => {
                     res.render('users-index', {currentUser, comments});
                 })
