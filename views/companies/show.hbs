@@ -1,22 +1,31 @@
 <div class="container mt-2">
     <div class="row ">
         <div class="col-md-8 m-auto">
-            {{!-- {{#if msg}} --}}
             <h1 class="text-center text-info my-3" style="font-size:2rem">
             </h1>
-            {{!-- {{/if}} --}}
-            {{!-- {{#if name}} --}}
-            {{!-- <h1 class="text-center text-info my-3" style="font-size:2rem">
-                Keep it cool {{name}} <br />
-                You have already voted for {{votedfor}}
-            </h1> --}}
-            {{!-- {{/if}} --}}
         </div>
     </div>
+
     
     {{!-- {{#if name}} --}}
     <table class="table table-hover table-dark">
-        <h2 class="text-warning my-4"><u>Here's how {{company.name}} scores</u></h2>
+        <h2 class="text-warning my-4"><u>Here's how {{company.name}}</u></h2>
+        <h3 class="text-warning my-4"><u>Average Score &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Total Votes</u></h3>
+        <div class="pie-wrapper progress-half">        
+  <span class="label">{{scoreAverage}}</span>
+  <div class="pie">
+    <div class="left-side half-circle"></div>
+    <div class="right-side half-circle"></div>
+  </div>  
+</div>
+<div class="pie-wrapper progress-full">
+  <span class="label">{{scoreLength}}</span>
+  <div class="pie">
+    <div class="left-side half-circle"></div>
+    <div class="right-side half-circle"></div>
+  </div>  
+</div>
+ <h2 class="text-warning my-4"><u>Here's how all companies score</u></h2>
         <thead>
             <tr class="bg-primary">
                 <th scope="col">Criteria</th>
@@ -61,6 +70,11 @@
 {{!-- <a href="/companies/{{company.id}}/vote">Submit your vote</a>
 <br>
 <a href="/companies">Back to companies list</a> --}}
+
+<br>
+<br>
+
+
 
 <div class="well">
     <div class="text-right">
