@@ -96,4 +96,19 @@ a {
 .sub-title {
   color: white !important; }
 
+.well {
+  background-image: linear-gradient(#8459f9, #4c3196) !important;
+  margin-left: 150px;
+  margin-right: 150px; }
+
+.col-md-12 {
+  margin-left: 150px;
+  margin-right: 150px;
+  color: white; }
+
+.form-group {
+  color: white;
+  margin-left: 150px;
+  margin-right: 150px; }
+
 /*# sourceMappingURL=style.css.map */
