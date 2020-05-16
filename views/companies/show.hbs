@@ -1,5 +1,6 @@
 <head>
      <link rel="stylesheet" href="/stylesheets/landing.css">
+{{!--       <link rel="stylesheet" href="/stylesheets/rating.css" --}}
 </head>
 
 <div class="container mt-2">
@@ -31,11 +32,11 @@
 {{!-- {{#each name}} --}}
         <tbody>
             <tr>
-                <th scope="row">Women In Mangement</th>
-                <th scope="col">{{womenInMangementScore}}</th>
-                <th scope="row">{{votes}}</th>
+                <th scope="row">{{company.name}}</th>
+                <th scope="col">{{company.rating}}</th>
+                <th scope="row">{{company.ratings}}</th>
             </tr>
-                <tr>
+{{!--                 <tr>
                 <th scope="row">Gender Pay Gap</th>
                 <th scope="col">{{genderPayGapScore}}</th>
                 <th scope="row">{{votes}}</th>
@@ -55,7 +56,7 @@
                 <th scope="row">Career Growth</th>
                 <th scope="col">{{careerGrowthScore}}</th>
                 <th scope="row">{{votes}}</th>
-            </tr>
+            </tr> --}}
        
         </tbody>
     {{!-- {{/each}} --}}
@@ -99,6 +100,8 @@
     </div>
   </div>
 </div>
+
+  <form action="/companies/{{company.id}}/comments" method="POST"></form>
 
             <form action="/companies/{{company.id}}/ratings" method="POST">
                 <div class="form-group">

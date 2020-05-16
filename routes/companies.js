@@ -14,66 +14,26 @@ router.get('/companies', (req, res, next) => {
     });
 });
 
-/* router.get('/companies/vote', (req, res) => {
-    res.render('companies/vote', {
-      title: 'Vote for your favourite company'
+
+
+ router.get('/companies/new', (req, res) => {
+    res.render('companies/new', {
+      title: 'Submit a new company'
     });
-  }); */
+  }); 
+  router.post('/companies', (req, res, next) => {
+    const { name, url, image, description } = req.body
 
+    Company.create({ name, url, image, description })
+    .then(() => res.redirect('/companies'))
+    .catch(err => console.log (`An error ocurred adding a company: ${err}`))
+})
 
-  // CREATE - add new company to DB
-router.post('/companies', (req, res, next) => {
-    const { name, URL, image, description } = req.body;
-    const newCompany = new Company({name, URL, image, description, author});
-    newCompany.save()
-      .then(() => {
-        res.redirect('/companies');
-      })
-      .catch((error) => {
-        next(error);
-      });
-  });
-
-  router.post('/companies', (req, res) => {
-    // get data from form and add to companies array
-    const name = req.body.name;
-    const image = req.body.image;
-    const description = req.body.description;
-    const author = {
-        id: req.user._id,
-        username: req.user.username
-    }
-    const newCompany = {name: name, image: image, description: description, author:author}
-    // Create a new company and save to DB
-    Company.create(newCompany, (err, newlyCreated) => {
-        if(err){
-            console.log(err);
-        } else {
-            //redirect back to companies page
-            console.log(newlyCreated);
-            res.redirect('/companies');
-        }
-    });
-});
 
 //NEW - show form to create new company
-router.get('/new', (req, res) => {
-  res.render('companies/new'); 
-});
-
-
-/* router.get('/companies/:id', async (req, res) => {
-  console.log(`route working`)
-  const { id } = req.params;
-  try {
-    const company = await Company.findById(id);
-    res.render('companies/show', company);
-  } catch (error) {
-    console.log(error);
-  }  
-});   */
-
-
+router.get('companies/new', (req, res) => {
+  res.render('/companies'); 
+}); 
 
 // SHOW - shows more info about one company
 
@@ -134,11 +94,11 @@ router.delete('companies/:id', (req, res) => {
 });
 
 // Company VOTE ROUTE (might remove)
-router.get('/companies/:id/vote', async (req, res, next) => {
+router.get('/companies/:id/new', async (req, res, next) => {
   const { id } = req.params;
   try {
     const company = await Company.findById(id);
-    res.render('companies/vote', company);
+    res.render('companies/new', company);
   } catch (error){
     console.log(error);
   }

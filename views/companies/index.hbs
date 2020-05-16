@@ -1,13 +1,14 @@
-{{>header}}
+{{> header}}
  <head>
    <link rel="stylesheet" href="/stylesheets/cards.css"
  </head>
-<div class='container'>
-  <div class='jumbotron jumbotron-fluid'>
-    <h1>Most Popular Companies</h1>
-    <h2>blah blah blah</h2>
-    <p><a class='btn btn-lg btn-success' href='/companies/vote'>Vote For Your Favourite Company</a></p>
-  </div>
+  <div class="jumbotron fluid">
+    <div class="container">
+        <h1 class="mb-0 display-2 hero-title">Most Popular Companies</h1>
+        <h4 class="sub-title">blah blah blah</h4>
+        <a class="btn primary btn-lg" href="/companies/new">Submit a Company</a>
+    </div>
+</div>
    <div class="cards-list">
    {{#each allCompanies}}
 <div class="card">

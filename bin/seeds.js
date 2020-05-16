@@ -101,6 +101,20 @@ function seedDB() {
                                    console.log("Created new comment");
                                }
                            });
+                            //create a rating
+                           Rating.create(
+                            {
+                                rating: 3,
+                                author: "Mihaela"
+                            }, (err, rating) => {
+                                if(err){
+                                    console.log(err);
+                                } else {
+                                    company.ratings.push(rating);
+                                    company.save();
+                                    console.log("Created new rating");
+                                }
+                            });
                    }
                });
            });

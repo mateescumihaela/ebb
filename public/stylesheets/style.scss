@@ -1,8 +1,28 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font-size: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: rgba(71, 71, 71, 0.73);
   color: white;
+}
+
+.cards-list {
+  position: relative;
+  margin: 120px auto;
+  overflow: hidden;
+  height: 1000px;
+  
+}
+
+.cards-list:before {
+  border-radius: 180% 130% 0 0;
+  position: absolute;
+  background: white;
+  background-image: linear-gradient(#8459f9, white) !important;
+  bottom: 300px;
+  right: -200px;
+  left: -200px;
+  content: '';
+  top: 0;
 }
 
 a {
@@ -65,4 +85,38 @@ a {
   font-size: 16px;
   border-radius: 5px;
   padding: 25px;
+}
+
+@media (max-width: 580px) {
+  .jumbotron .hero-title {
+      font-size: 40px !important;
+      color: white !important;
+  }
+  .sub-title {
+    font-size: 18px !important;
+    color: white !important;
+  }
+}
+
+.btn-success {
+  background-color: rgb(91,63,249) !important;
+}
+
+.btn-block {
+  background-color: rgb(91,63,249) !important;
+}
+
+.jumbotron.fluid {
+  // position:absolute !important;
+  background-image: linear-gradient(#8459f9, #4c3196) !important;
+  border-bottom-left-radius: 30% 20% !important;
+  border-bottom-right-radius: 80% 20% !important;
+}
+
+.hero-title {
+  color: white !important;
+}
+
+.sub-title {
+  color: white !important;
 }

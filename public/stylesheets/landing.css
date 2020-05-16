@@ -6,11 +6,11 @@ body {
     z-index: 1;
     position: relative;
     text-align: center;
-    padding-top: 25vh;
+    padding-top: 20vh;
   }
   
   #landing-header h1 {
-    font-size: 6rem;
+    font-size: 5rem;
     color: #fff;
   }
   
@@ -77,28 +77,3 @@ body {
       opacity: 0;
     }
   }  
-  .navbar {
-    background-color: transparent;
-    border-color: transparent;
-    border-radius: 0px;
-    margin:0 !important;
-    padding: 0px !important;
-    z-index: 1;
-    }
-
-  .nav.navbar-nav.navbar-right li a {
-      color: white;
-      font-size: 22px;
-  }
-
-  .container-fluid {
-    padding-right:0;
-    padding-left:0;
-    margin-right:auto;
-    margin-left:auto
- }
-
- .navbar-brand{
-  color: white;
-  font-size: 22px;
- }
