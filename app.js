@@ -12,6 +12,28 @@ const path         = require('path');
 const session      = require('express-session');
 const MongoStore   = require('connect-mongo')(session);
 
+hbs.registerHelper('inc', (value, options) => {
+    return parseInt(value) + 1;
+});
+
+hbs.registerHelper("prettifyDate", (timestamp) => {
+  function addZero(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+      return i;
+    }
+    let curr_date = timestamp.getDate();
+    let curr_month = timestamp.getMonth();
+    curr_month++;
+    let curr_year = timestamp.getFullYear();
+    let curr_hour = timestamp.getHours();
+    let curr_minutes = timestamp.getMinutes();
+
+    result = `${addZero(curr_date)}/${addZero(curr_month)}/${addZero(curr_year)}, ${addZero(curr_hour)}:${addZero(curr_minutes)}`;
+    return result;
+});
+
 mongoose
   .connect(process.env.MONGODB_URI, {useNewUrlParser: true})
   .then(x => {

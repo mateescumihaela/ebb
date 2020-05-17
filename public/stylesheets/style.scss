@@ -68,23 +68,31 @@ a {
 }
 
 .user-interaction {
+  flex-wrap: wrap;
   margin: auto 50px;
   font-size: 16px;
   padding-top: 20px;
   .myComments{
-  border-radius: 5px;
+  border-radius: 6px;
   border: solid black 3px;
   // padding-left: 15px;
   background-color: white;
   font-size: 16px;
   }
   .myVotes {
-    border-radius: 5px;
+    border-radius: 6px;
     // padding-left: 15px;
     border: solid black 3px;
     background-color: white;
     font-size: 16px;
   }
+  .company-name {
+    border: 1px solid black 
+  }
+}
+.comment-new {
+  margin: auto;
+  color: white;
 }
 
 .picture {

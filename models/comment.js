@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const commentSchema = new mongoose.Schema({
 	text: String,
-	createdAt: {type: Date, default:Date.nom},
 	author: {
 		id: {
 			type: mongoose.Schema.Types.ObjectId,
@@ -14,6 +13,12 @@ const commentSchema = new mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'Company'
 	}
-});
+},{
+	timestamps: {
+	  createdAt: 'createdAt',
+	  updatedAt: 'updatedAt',
+	}
+  }
+);
 
 module.exports = mongoose.model('Comment', commentSchema);
