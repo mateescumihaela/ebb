@@ -131,6 +131,14 @@ a {
   background-color: #4c3196 !important;
 }
 
+.btn-success{
+  outline: none !important;
+}
+
+.btn-success:active, .btn:focus{
+  border: none !important;
+}
+
 .jumbotron.fluid {
   background-color: transparent;
   // background-image: linear-gradient(#D1C4E9, #4c3196) !important;

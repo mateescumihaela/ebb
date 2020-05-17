@@ -105,6 +105,12 @@ a {
 .btn-block {
   background-color: #4c3196 !important; }
 
+.btn-success {
+  outline: none !important; }
+
+.btn-success:active, .btn:focus {
+  border: none !important; }
+
 .jumbotron.fluid {
   background-color: transparent; }
 
