@@ -9,8 +9,8 @@
     
     {{!-- {{#if name}} --}}
     <table class="table table-hover table-dark">
-        <h2 class="text-warning my-4"><u>Here's how {{company.name}} scores</u></h2>
-        <h3 class="text-warning my-4"><u>Average Score &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Total Votes</u></h3>
+        <h2 class="text-warning1 my-4"><u> Here's how {{company.name}} scores</u></h2>
+        <h3 class="text-warning my-4"><u>Average Score &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Total Votes</u></h3>
         <div class="pie-wrapper progress-half">        
   <span class="label">{{scoreAverage}}</span>
   <div class="pie">
@@ -25,21 +25,25 @@
     <div class="right-side half-circle"></div>
   </div>  
 </div>
- <h2 class="text-warning my-4"><u>Here's how all companies score</u></h2>
-        <thead>
+<br>
+<br>
+ <h2 class="text-warning2 my-4"><u>Worked at {{company.name}}? Leave a comment or submit your vote below</u></h2>
+{{!--         <thead>
             <tr class="bg-primary">
-                <th scope="col">Criteria</th>
+                <th scope="col">Company</th>
                 <th scope="col">Score</th>
                 <th scope="col">Total Votes</th>
             </tr>
-        </thead>
-{{!-- {{#each name}} --}}
-        <tbody>
+        </thead> --}}
+{{!-- {{#each scoreAverage}} --}}
+{{!--         <tbody>
             <tr>
                 <th scope="row">{{company.name}}</th>
-                <th scope="col">{{scoreAverage}}</th>
-                <th scope="row">{{scoreLength}}</th>
-            </tr>
+                <th scope="col">{{this.scoreAverage}}</th>
+                <th scope="row">{{this.scoreLength}}</th>
+            </tr> --}}
+
+            
 {{!--                 <tr>
                 <th scope="row">Gender Pay Gap</th>
                 <th scope="col">{{genderPayGapScore}}</th>
@@ -61,6 +65,7 @@
                 <th scope="col">{{careerGrowthScore}}</th>
                 <th scope="row">{{votes}}</th>
             </tr> --}}
+         
         </tbody>
     {{!-- {{/each}} --}}
     </table>
@@ -70,9 +75,6 @@
 {{!-- <a href="/companies/{{company.id}}/vote">Submit your vote</a>
 <br>
 <a href="/companies">Back to companies list</a> --}}
-
-<br>
-<br>
 
 
 
@@ -109,28 +111,165 @@
 <br>
   
 
+<h3 class="text-warning my-4"><u>Submit your vote</u></h3>
 
-<form action="/companies/{{company.id}}/ratings" method="POST">
-    <div class="form-group">
-    <label for="rating">Rating Tester</label>
+ <form action="/companies/{{company.id}}/ratings" method="POST">
+ 
+ <div class="form-group">
+    <label for="rating">Women in management</label>
     <fieldset class="starability-basic form-group" id="rating">
-    <input type="radio" id="first-rate5" name="rating" value="5" />
-    <label for="first-rate5" title="Amazing">5</label>
-    <input type="radio" id="first-rate4" name="rating" value="4" />
-    <label for="first-rate4" title="Very good">4</label>
+    <input type="radio" id="first-rate5" name="rating" value="1" />
+    <label for="first-rate5" title="Amazing">1</label>
+    <input type="radio" id="first-rate4" name="rating" value="1" />
+    <label for="first-rate4" title="Very good">2</label>
     <input type="radio" id="first-rate3" name="rating" value="3" />
     <label for="first-rate3" title="Average">3</label>
-    <input type="radio" id="first-rate2" name="rating" value="2" />
-    <label for="first-rate2" title="Not good">2</label>
-    <input type="radio" id="first-rate1" name="rating" value="1" />
-    <label for="first-rate1" title="Terrible">1</label>
+    <input type="radio" id="first-rate2" name="rating" value="4" />
+    <label for="first-rate2" title="Not good">4</label>
+    <input type="radio" id="first-rate1" name="rating" value="5" />
+    <input type="radio" id="first-rate5" name="rating" value="6" />
+    <label for="first-rate5" title="Amazing">6</label>
+    <input type="radio" id="first-rate4" name="rating" value="7" />
+    <label for="first-rate4" title="Very good">7</label>
+    <input type="radio" id="first-rate3" name="rating" value="8" />
+    <label for="first-rate3" title="Average">8</label>
+    <input type="radio" id="first-rate2" name="rating" value="9" />
+    <label for="first-rate2" title="Not good">9</label>
+    <input type="radio" id="first-rate1" name="rating" value="10" />
+    <label for="first-rate1" title="Terrible">10</label>
     </fieldset>
+    </div> 
+
     </div>
+   
+</form> 
+
+ <form action="/companies/{{company.id}}/ratings" method="POST">
+ 
+ <div class="form-group">
+    <label for="rating">Gender Pay Gap</label>
+    <fieldset class="starability-basic form-group" id="rating">
+    <input type="radio" id="first-rate5" name="rating" value="1" />
+    <label for="first-rate5" title="Amazing">1</label>
+    <input type="radio" id="first-rate4" name="rating" value="1" />
+    <label for="first-rate4" title="Very good">2</label>
+    <input type="radio" id="first-rate3" name="rating" value="3" />
+    <label for="first-rate3" title="Average">3</label>
+    <input type="radio" id="first-rate2" name="rating" value="4" />
+    <label for="first-rate2" title="Not good">4</label>
+    <input type="radio" id="first-rate1" name="rating" value="5" />
+    <input type="radio" id="first-rate5" name="rating" value="6" />
+    <label for="first-rate5" title="Amazing">6</label>
+    <input type="radio" id="first-rate4" name="rating" value="7" />
+    <label for="first-rate4" title="Very good">7</label>
+    <input type="radio" id="first-rate3" name="rating" value="8" />
+    <label for="first-rate3" title="Average">8</label>
+    <input type="radio" id="first-rate2" name="rating" value="9" />
+    <label for="first-rate2" title="Not good">9</label>
+    <input type="radio" id="first-rate1" name="rating" value="10" />
+    <label for="first-rate1" title="Terrible">10</label>
+    </fieldset>
+    </div> 
+
+    </div>
+   
+</form> 
+
+</form> 
+
+ <form action="/companies/{{company.id}}/ratings" method="POST">
+ 
+ <div class="form-group">
+    <label for="rating">Maternity Leave</label>
+    <fieldset class="starability-basic form-group" id="rating">
+    <input type="radio" id="first-rate5" name="rating" value="1" />
+    <label for="first-rate5" title="Amazing">1</label>
+    <input type="radio" id="first-rate4" name="rating" value="1" />
+    <label for="first-rate4" title="Very good">2</label>
+    <input type="radio" id="first-rate3" name="rating" value="3" />
+    <label for="first-rate3" title="Average">3</label>
+    <input type="radio" id="first-rate2" name="rating" value="4" />
+    <label for="first-rate2" title="Not good">4</label>
+    <input type="radio" id="first-rate1" name="rating" value="5" />
+    <input type="radio" id="first-rate5" name="rating" value="6" />
+    <label for="first-rate5" title="Amazing">6</label>
+    <input type="radio" id="first-rate4" name="rating" value="7" />
+    <label for="first-rate4" title="Very good">7</label>
+    <input type="radio" id="first-rate3" name="rating" value="8" />
+    <label for="first-rate3" title="Average">8</label>
+    <input type="radio" id="first-rate2" name="rating" value="9" />
+    <label for="first-rate2" title="Not good">9</label>
+    <input type="radio" id="first-rate1" name="rating" value="10" />
+    <label for="first-rate1" title="Terrible">10</label>
+    </fieldset>
+    </div> 
+
+    </div>
+   
+</form> 
+
+<form action="/companies/{{company.id}}/ratings" method="POST">
+ 
+ <div class="form-group">
+    <label for="rating">Flexible Schedule</label>
+    <fieldset class="starability-basic form-group" id="rating">
+    <input type="radio" id="first-rate5" name="rating" value="1" />
+    <label for="first-rate5" title="Amazing">1</label>
+    <input type="radio" id="first-rate4" name="rating" value="1" />
+    <label for="first-rate4" title="Very good">2</label>
+    <input type="radio" id="first-rate3" name="rating" value="3" />
+    <label for="first-rate3" title="Average">3</label>
+    <input type="radio" id="first-rate2" name="rating" value="4" />
+    <label for="first-rate2" title="Not good">4</label>
+    <input type="radio" id="first-rate1" name="rating" value="5" />
+    <input type="radio" id="first-rate5" name="rating" value="6" />
+    <label for="first-rate5" title="Amazing">6</label>
+    <input type="radio" id="first-rate4" name="rating" value="7" />
+    <label for="first-rate4" title="Very good">7</label>
+    <input type="radio" id="first-rate3" name="rating" value="8" />
+    <label for="first-rate3" title="Average">8</label>
+    <input type="radio" id="first-rate2" name="rating" value="9" />
+    <label for="first-rate2" title="Not good">9</label>
+    <input type="radio" id="first-rate1" name="rating" value="10" />
+    <label for="first-rate1" title="Terrible">10</label>
+    </fieldset>
+    </div> 
+
+    </div>
+   
+</form> 
+
+ <form action="/companies/{{company.id}}/ratings" method="POST">
+ 
+ <div class="form-group">
+    <label for="rating">Career Growth</label>
+    <fieldset class="starability-basic form-group" id="rating">
+    <input type="radio" id="first-rate5" name="rating" value="1" />
+    <label for="first-rate5" title="Amazing">1</label>
+    <input type="radio" id="first-rate4" name="rating" value="1" />
+    <label for="first-rate4" title="Very good">2</label>
+    <input type="radio" id="first-rate3" name="rating" value="3" />
+    <label for="first-rate3" title="Average">3</label>
+    <input type="radio" id="first-rate2" name="rating" value="4" />
+    <label for="first-rate2" title="Not good">4</label>
+    <input type="radio" id="first-rate1" name="rating" value="5" />
+    <input type="radio" id="first-rate5" name="rating" value="6" />
+    <label for="first-rate5" title="Amazing">6</label>
+    <input type="radio" id="first-rate4" name="rating" value="7" />
+    <label for="first-rate4" title="Very good">7</label>
+    <input type="radio" id="first-rate3" name="rating" value="8" />
+    <label for="first-rate3" title="Average">8</label>
+    <input type="radio" id="first-rate2" name="rating" value="9" />
+    <label for="first-rate2" title="Not good">9</label>
+    <input type="radio" id="first-rate1" name="rating" value="10" />
+    <label for="first-rate1" title="Terrible">10</label>
+    </fieldset>
+    </div> 
         <div class="form-group">
-        <button class="btn btn-sm btn-primary">Submit rating!</button>
+        <button class="btn primary btn-lg">Submit rating!</button>
         </div>
         </form>
 
     </div>
-</form>
-
+   
+</form> 

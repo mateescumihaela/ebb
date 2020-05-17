@@ -3,8 +3,10 @@
 </head>
 <div class="jumbotron fluid">
   <div class="container">
-    <h1 class="mb-0 display-2 hero-title">Most Popular Companies</h1>
-    <h4 class="sub-title">blah blah blah</h4>
+    <h1 class="mb-0 display-2 hero-title">We crowdsourced company policies to help create a more diverse workforce</h1>
+    <br>
+    <h3 class="sub-title">Know a company that should be featured?</h3>
+    <br>
     <a class="btn primary btn-lg" href="/companies/new">Submit a Company</a>
   </div>
 </div>
@@ -15,7 +17,7 @@
         <img src="{{ this.image }}"/>
       </div>
       <div class="card_title">
-        <a href='/companies/{{ this._id }}' class='btn btn-sm btn-success' <p> See company details </p> </a>
+        <a href='/companies/{{ this._id }}' class='btn primary btn-sm' <p> See company details </p> </a>
       </div>
     </div>
   {{/each}}

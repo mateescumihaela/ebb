@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+* {
+  font-family: 'Lato', sans-serif; }
+
 body {
   padding: 0px;
   font-size: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -89,17 +93,13 @@ a {
     color: white !important; } }
 
 .btn-success {
-  background-color: #5b3ff9 !important; }
+  background-color: #4c3196 !important; }
 
 .btn-block {
-  background-color: #5b3ff9 !important; }
+  background-color: #4c3196 !important; }
 
 .jumbotron.fluid {
-  background-image: linear-gradient(#D1C4E9, #4c3196) !important;
-  border-bottom-left-radius: 1% 1% !important;
-  border-bottom-right-radius: 1% 1% !important;
-  border-top-left-radius: 1% 1% !important;
-  border-top-right-radius: 1% 1% !important; }
+  background-color: transparent; }
 
 .hero-title {
   color: white !important; }
@@ -197,8 +197,11 @@ a {
 .pie-wrapper.progress-full .pie .right-side {
   display: block; }
 
+.pie-wrapper.progress-half {
+  margin-left: 200px; }
+
 .pie-wrapper.progress-full {
-  margin-left: 100px; }
+  margin-left: 350px; }
 
 .pie-wrapper.progress-full .pie .right-side {
   -webkit-transform: rotate(300deg);
@@ -209,5 +212,64 @@ div, div:before, div:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
+
+#rating {
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  padding-left: 2.5rem;
+  position: relative;
+  top: 0.25rem; }
+
+.bg-primary {
+  background-image: linear-gradient(#8459f9, #4c3196) !important; }
+
+.text-warning {
+  font-size: 30px;
+  font-weight: 700;
+  margin-left: 160px;
+  line-height: 50px;
+  letter-spacing: 2px;
+  background: #3498DB;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 300%;
+  animation: gradient-text 8s ease infinite; }
+
+.text-warning1 {
+  font-size: 60px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, #ff8a00, #e52e71, #044bea, #7a00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 300%;
+  animation: gradient-text 8s ease infinite; }
+
+@-webkit-keyframes gradient-text {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
+
+.hero-title {
+  font-size: 60px !important;
+  margin-right: 400px !important; }
+
+.text-warning2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 160px;
+  line-height: 50px;
+  letter-spacing: 2px;
+  background: #3498DB;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 300%;
+  animation: gradient-text 8s ease infinite; }
 
 /*# sourceMappingURL=style.css.map */

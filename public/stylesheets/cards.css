@@ -49,9 +49,7 @@
       -5px -5px 30px 15px rgba(0,0,0,0.22);
   }
     
-  .btn-primary {
-    background-color: #8064A2 !important;
-}
+
   @media all and (max-width: 500px) {
     .card-list {
       flex-direction: column;

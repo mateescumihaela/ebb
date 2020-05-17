@@ -10,12 +10,6 @@ const companySchema = new Schema({
   size: String,
   noOfEmployees: Number,
   user: {type: Schema.ObjectId, ref:'User'},
-  // womenInMangementScore: Number,
-  // genderPayGapScore: Number,
-  // maternityLeaveScore: Number,
-  // flexibleWorkScheduleScore: Number,
-  // careerGrowthScore: Number,
-  // votes: Number,
   author: {
     id: {
        type: mongoose.Schema.Types.ObjectId,
