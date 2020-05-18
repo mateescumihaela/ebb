@@ -51,18 +51,28 @@ router.get('companies/new', (req, res) => {
            if(foundCompany.ratings.length > 0) {
          
             scoreLength = foundCompany.ratings.length;
-           
+
+/*             Company.ratings.forEach((score) => { 
+              ratings.push(rating.score) 
+            });
+            */
+           console.log(scoreLength);
+           console.log(foundCompany.ratings);
              const totalRating = foundCompany.ratings.reduce((total, rating) => {
-               return total + rating.score;
+              //  console.log('rating', rating);
+              // scoreLength += rating.score;
+              return total + rating.score;
              }, 0);
              console.log('total rating', totalRating);
-             scoreAverage = totalRating / scoreLength;
-         
+             scoreAverage = (totalRating / scoreLength).toFixed(2);
+            
            }
            console.log('Ratings:', foundCompany.ratings);
            console.log('Rating:', foundCompany.rating);
+           console.log('scoreAverage', scoreAverage);
            res.render('companies/show', {company: foundCompany, scoreLength, scoreAverage, currentUser});
        }
+
    });
  });
 
