@@ -5,28 +5,19 @@
 }
 
 body {
-  padding: 0px;
+  margin:0;
+	padding: 0;
   font-size: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: rgba(71, 71, 71, 0.73);
   color: white;
 }
 
 .cards-list {
+  background-image: linear-gradient(#673AB7, white) !important;
   position: relative;
   margin: 120px auto;
+  margin-top: 150px;
   overflow: hidden; 
-}
-
-.cards-list:before {
-  border-radius: 190% 150% 0 0;
-  position: absolute;
-  background: white;
-  background-image: linear-gradient(#673AB7, white) !important;
-  bottom: 300px;
-  right: -200px;
-  left: -200px;
-  content: '';
-  top: 0;
 }
 
 a {
@@ -127,6 +118,7 @@ a {
   background-color: #4c3196 !important;
 }
 
+
 .btn-block {
   background-color: #4c3196 !important;
 }
@@ -134,6 +126,8 @@ a {
 .btn-success{
   outline: none !important;
 }
+
+
 
 .btn-success:active, .btn:focus{
   border: none !important;
@@ -259,3 +253,66 @@ div,div:before,div:after {-moz-box-sizing: border-box;-webkit-box-sizing: border
   background-size: 300% 300%;
   animation: gradient-text 8s ease infinite;
 }
+
+
+.container-header {
+  margin: 40px;
+}
+
+h3 {
+  margin-right: 700px;
+}
+
+
+//Login styling
+
+label {
+  margin-top: 6px;
+  line-height: 17px;
+}
+
+a {
+  color: #fff;
+}
+
+a:focus,
+a:hover {
+  color: #008080;
+}
+
+.login { 
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -150px 0 0 -150px;
+	width:300px;
+  height:300px; 
+}
+
+.login h1 { 
+  color: #fff; 
+  text-shadow: 0 0 10px rgba(0,0,0,0.3); 
+  letter-spacing:1px; 
+  text-align:center; 
+}
+
+
+input { 
+	width: 100%; 
+	margin-bottom: 10px; 
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
+
+

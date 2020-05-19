@@ -23,6 +23,7 @@ router.get('/companies', (req, res, next) => {
       currentUser
     });
   }); 
+  
   router.post('/companies', (req, res, next) => {
     const { name, url, image, description } = req.body
 
