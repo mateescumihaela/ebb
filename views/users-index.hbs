@@ -58,7 +58,7 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Company</th>
-            <th scope="col">Votes</th>
+            <th scope="col" class="userScore">Average Rating</th>
             <th scope="col">Posted on</th>
           </tr>
         </thead>
@@ -67,7 +67,7 @@
             <tr>
               <th scope="row">{{inc @index}}</th>
               <td>{{this.company.name}}</td>
-              <td>{{this.score}}</td>
+              <td class="userScore">{{this.score}}</td>
               <td>{{prettifyDate createdAt}}</td>
             </tr>
           </tbody>

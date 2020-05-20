@@ -3,8 +3,6 @@ const router = express.Router({mergeParams: true}); // pass through params
 const Company = require('../models/company');
 const Comment = require('../models/comment');
 const User = require('../models/user.js');
-
-
 // Comment NEW route
 router.get('/companies/:id/comments/new', (req, res) => {
     //find company by id
@@ -17,8 +15,6 @@ router.get('/companies/:id/comments/new', (req, res) => {
 		}
 	});
 });
-
-
 // Comment CREATE route
 router.post('/companies/:id/comments', (req, res) => {
     //lookup company using ID
@@ -52,7 +48,6 @@ router.post('/companies/:id/comments', (req, res) => {
        }
    });
 });
-
 // Comment EDIT route
 router.get('/companies/:id/comments/:comment_id/edit', (req, res) => {
     Comment.findById(req.params.comment_id, (err, foundComment) => {
@@ -63,7 +58,6 @@ router.get('/companies/:id/comments/:comment_id/edit', (req, res) => {
         }
     });
 });
-
 // Comment UPDATE route
 router.put('/companies/:id/comments/:comment_id', (req, res) => {
     Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, (err, updatedComment) => {
@@ -74,7 +68,6 @@ router.put('/companies/:id/comments/:comment_id', (req, res) => {
         }
     });
 });
-
 // Comment DESTROY route
 router.delete('/companies/:id/comments/:comment_id', (req, res) => {
     Comment.findByIdAndRemove(req.params.comment_id, (err) => {
@@ -85,6 +78,5 @@ router.delete('/companies/:id/comments/:comment_id', (req, res) => {
         }
     });
 });
-
 
 module.exports = router;

@@ -23,6 +23,7 @@ router.get('/companies', (req, res, next) => {
       currentUser
     });
   }); 
+  
   router.post('/companies', (req, res, next) => {
     const { name, url, image, description } = req.body
 
@@ -39,34 +40,25 @@ router.get('companies/new', (req, res) => {
 }); 
 
 // SHOW - shows more info about one company
-
- router.get('/companies/:id', (req, res) => {
-   Company.findById(req.params.id).populate('comments').populate('ratings').exec((err, foundCompany) => {
-       if(err){
-           console.log(err);
-       } else {
-        const currentUser = req.session.currentUser;
-         let scoreLength = 0;
-         let scoreAverage = 0;
-           if(foundCompany.ratings.length > 0) {
-         
-            scoreLength = foundCompany.ratings.length;
-           
-             const totalRating = foundCompany.ratings.reduce((total, rating) => {
-               return total + rating.score;
-             }, 0);
-             console.log('total rating', totalRating);
-             scoreAverage = totalRating / scoreLength;
-         
-           }
-           console.log('Ratings:', foundCompany.ratings);
-           console.log('Rating:', foundCompany.rating);
-           res.render('companies/show', {company: foundCompany, scoreLength, scoreAverage, currentUser});
-       }
-   });
- });
-
-
+router.get('/companies/:id', (req, res) => {
+  Company.findById(req.params.id).populate('comments').populate('ratings').exec((err, foundCompany) => {
+    if(err){
+      console.log(err);
+    } else {
+      const currentUser = req.session.currentUser;
+      let scoreLength = 0;
+      let scoreAverage = 0;
+        if(foundCompany.ratings.length > 0) {
+          scoreLength = foundCompany.ratings.length;
+          const totalRating = foundCompany.ratings.reduce((total, rating) => {
+            return total + rating.score;
+          }, 0);
+          scoreAverage = (totalRating / scoreLength).toFixed(2); 
+        }
+        res.render('companies/show', {company: foundCompany, scoreLength, scoreAverage, currentUser});
+    }
+  });
+});
 // EDIT Company ROUTE
 router.get('companies/:id/edit', (req, res) => {
   Company.findById(req.params.id, (err, foundCompany) => {
@@ -74,20 +66,18 @@ router.get('companies/:id/edit', (req, res) => {
       res.render('companies/edit', {company: foundCompany, currentUser});
   });
 });
-
 // UPDATE Company ROUTE
 router.post('companies/:id', (req, res) => {
   // find and update the correct company
   Company.findByIdAndUpdate(req.params.id, req.body.company, (err, updatedCompany) => {
-     if(err) {
-         res.redirect('/companies');
-     } else {
-         //redirect to company details page
-         res.redirect('/companies/' + req.params.id);
-     }
+    if(err) {
+      res.redirect('/companies');
+    } else {
+      //redirect to company details page
+      res.redirect('/companies/' + req.params.id);
+    }
   });
 });
-
 // DESTROY Company ROUTE
 router.delete('companies/:id', (req, res) => {
   Company.findByIdAndRemove(req.params.id, (err) => {
@@ -98,7 +88,6 @@ router.delete('companies/:id', (req, res) => {
      }
   });
 });
-
 // Company VOTE ROUTE (might remove)
 router.get('/companies/:id/new', async (req, res, next) => {
   const { id } = req.params;
@@ -110,6 +99,6 @@ router.get('/companies/:id/new', async (req, res, next) => {
   }
 });
 
-  module.exports = router;
+module.exports = router;
 
 

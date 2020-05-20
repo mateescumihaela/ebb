@@ -1,24 +1,28 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center submitCompany">
     <div class="col-md-6">
         <h1 class="newH1">Submit A New Company</h1>
-        <form action="/companies" method="POST">
+        <form action="/companies" method="POST" >
             <div class="form-group">
                 <label for="field1">Name</label>
-                <input name="name" type="text" class="form-control" id="field1">
+                <input name="name" type="text" class="form-control" id="field1" required>
             </div>
             <div class="form-group">
                 <label for="field2">URL</label>
-                <input name="url" type="text" class="form-control" id="field2">
+                <input name="url" type="text" class="form-control" id="field2" required>
             </div>
             <div class="form-group">
                 <label for="field3">Image URL</label>
-                <input name="image" type="text" class="form-control" id="field3">
+                <input name="image" type="text" class="form-control" id="field3" required>
             </div>
             <div class="form-group">
                 <label for="field4">Description</label>
-                <input name="description" type="text" class="form-control" id="field4">
+                <input name="description" type="text" class="form-control" id="field4" required>
             </div>
-            <button type="submit" class="btn btn-info btn-lg btn-block">Submit</button>
+            <div class="column flex-wrap">
+                <button type="submit" class="btn btn-info btn-lg 
+                {{!-- btn-block --}}
+                ">Submit</button>
+            </div>
         </form>
     </div>
 </div>

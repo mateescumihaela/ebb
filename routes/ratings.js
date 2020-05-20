@@ -4,22 +4,32 @@ const Company = require('../models/company');
 const Rating = require('../models/rating');
 
 
+
 router.post('/companies/:id/ratings', (req, res) => {
-	const score = req.body.rating;
+	const scoreSched = Number(req.body.ratingSched);
+	const scorePay = Number(req.body.ratingPay);
+	const scoreMgmt = Number(req.body.ratingMgmt);
+	const scoreGrowth = Number(req.body.ratingGrowth);
+	const scoreMaternity = Number(req.body.ratingMaternity);
+    const totalScore = (scoreSched + scorePay + scoreMgmt + scoreGrowth + scoreMaternity)/5;
+// console.log('totalScore', totalScore);
 	const companyId = req.params.id;
 	const authorId = req.session.currentUser._id;
 	Company.findById(companyId, (err, company) => {
-		const newRating = new Rating({score, user:  req.session.currentUser._id, company: companyId, author: authorId});
+		const newRating = new Rating({score: totalScore, user:  req.session.currentUser._id, company: companyId, author: authorId});
 		newRating.save((createdRating) => {
-			console.log('saved', createdRating);
+			// console.log('saved', createdRating);
 			company.ratings.push(newRating);
 			company.save();
+
 			res.redirect('/companies/' + companyId);
 		});
 
 	});
 
 	return;
+
+	
 	Company.findById(req.params.id, (err, company) => {
 		if(err) {
 			console.log(err);

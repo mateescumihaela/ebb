@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,18 +15,36 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/buttercake@3.0.0/dist/css/butterCake.min.css">
-      <style>
-        .navbar-default{
-            z-index:2;
-        }
+    <style>
+      .navbar-default{
+        z-index:2;
+      }
     </style>
- 
 </head>
 <body>
- {{> header}}
-  {{{body}}}
-
-
+  <nav class="navbar sticky-top expand-md default-nav bg-primary">
+    <div class="container">
+        <div class="brand">
+          <a href="/">EBB</a>
+        </div>
+      <div class="menu-box" id="mainNav">
+        <div class="menu-close"><i class="fa fa-close"></i></div>
+          <ul class="menu ml-auto">
+            {{#if currentUser}}
+              <li class="nav-item"><a href="/users/{{currentUser.username}}" class="nav-link">Signed in as: {{currentUser.username}}</a></li>
+              <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
+            {{else}} 
+              <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+              <li class="nav-item"><a href="/signup" class="nav-link">Sign Up</a></li>
+            {{/if}}
+          </ul>
+        </div>
+        <button class="toggler bg-secondary text-white" data-nav="#mainNav"><i class="fa fa-bars"></i></button>
+        <div class="shadow"></div>
+      </div>
+    </div>
+  </nav>
+    {{{body}}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="/javascripts/script.js"></script>
