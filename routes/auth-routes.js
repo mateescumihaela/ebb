@@ -107,7 +107,7 @@ router.post('/signup', uploadCloud.single('photo'), (req, res, next) => {
     } 
 
     // Making sure that user doesn't exist already
-    User.findOne({ "username" : username})
+    User.findOne({ "username" : username, "email": email})
     .then(user => {
     if (user) {
         res.render("auth/signup", {
@@ -133,12 +133,22 @@ router.post('/users-edit/:id', (req, res) => {
     // const imgName = req.files['photo'].originalname;
     // }
     const {firstName, lastName, age} = req.body;
-    User.updateOne({_id: currentUserId}, {$set: {firstName, lastName, age, 
-        // imgPath, imgName
-    }})
-        .then(() => {
-            res.redirect('/users/:username');
-        })
-});
+    // User.findOne({_id: currentUserId})
+    // .then(user => {
+    //     if (user) {
+    //         console.log(user);
+    //         res.render('users-edit', {
+    //         errorMessage: "The username already exists"
+    //         });
+    //         return;
+    //     }
+        User.updateOne({_id: currentUserId}, {$set: {firstName, lastName, age 
+            // imgPath, imgName
+        }})
+            .then(() => {
+                res.redirect('/users/:username');
+            })
+        // })
+    });
 
  module.exports = router;

@@ -16,16 +16,16 @@
         <label>Password</label>
         <input type="password" name="password" placeholder="******"><br>
         <label>E-mail</label>
-        <input type="email" name="email" placeholder="Your e-mail"><br><br>
+        <input type="email" name="email" placeholder="Your e-mail"><br>
         <label>Avatar</label><br>
-        <input type="file" name="photo"><br>
-        {{#if errorMessage}}
-          <div class="error-message">
-            {{errorMessage}}
-            {{/if}}
-          </div>
+        <input type="file" name="photo"><br><br>
         <button type="submit">Create Account</button>
       </p>
     </div>
+            {{#if errorMessage}}
+          <div class="error-message">
+            {{errorMessage}}
+          </div>
+        {{/if}}
   </div>
 </form>

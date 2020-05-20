@@ -7,12 +7,13 @@ const User = require('../models/user.js');
 
 // Comment NEW route
 router.get('/companies/:id/comments/new', (req, res) => {
-	//find company by id
+    //find company by id
+    const currentUser = req.session.currentUser;
 	Company.findById(req.params.id, (err, company) => {
 		if(err){
 			console.log(err);
 		}else{
-			res.render('comments/new', {company: company});
+			res.render('comments/new', {company: company, currentUser});
 		}
 	});
 });

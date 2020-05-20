@@ -38,8 +38,36 @@ a {
   width: 150px;
 }
 
+// .form-signup {
+//   background-color: white;
+//   margin: 25px auto;
+//   width: 500px; }
+// .form-signup label {
+//   color: #666;
+//   display: inline-block;
+//   margin-bottom: 10px;
+//   text-align: center;
+// }
+//   .form-signup input,
+// .form-signup button {
+//   box-sizing: border-box;
+//   font-size: 14px;
+//   outline: 0;
+//   padding: 2px;
+//   // width: 100%;
+//   margin-bottom: 15px;
+// }
+
+
 .user-details-signup {
   font-size: 16px;
+  .error-message {
+    background: #F02B63;
+    box-sizing: border-box;
+    color: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    width: 100%; }
 }
 
 .user-details {
