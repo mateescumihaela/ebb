@@ -109,17 +109,4 @@ router.delete('/companies/:id/comments/:comment_id', (req, res) => {
   });
    */
 
-<<<<<<< HEAD
-
-// Comment DESTROY route
-router.post('/companies/:id/comments/:comment_id/delete', (req, res, next) => {
-    Company.findByIdAndRemove(req.params.id)
-      .then(res.redirect('/companies'))
-      .catch(error => {
-        next()
-        return error
-      })
-  })
-=======
->>>>>>> ae547d79631c7aaa18fc9093677b9ded6b3cdf9d
 module.exports = router;

@@ -38,38 +38,6 @@ router.get('companies/new', (req, res) => {
   res.render('/companies', currentUser); 
 }); 
 
-<<<<<<< HEAD
-
-// SHOW - shows more info about one company
- router.get('/companies/:id', (req, res) => {
-   Company.findById(req.params.id).populate('comments').populate('ratings').exec((err, foundCompany) => {
-       if(err){
-           console.log(err);
-       } else {
-        const currentUser = req.session.currentUser;
-         let scoreLength = 0;
-         let scoreAverage = 0;
-           if(foundCompany.ratings.length > 0) {
-            scoreLength = foundCompany.ratings.length;
-           console.log(scoreLength);
-           console.log(foundCompany.ratings);
-             const totalRating = foundCompany.ratings.reduce((total, rating) => {
-              //  console.log('rating', rating);
-              return total + rating.score;
-             }, 0);
-             console.log('total rating', totalRating);
-             scoreAverage = (totalRating / scoreLength).toFixed(2); 
-           }
-           console.log('Ratings:', foundCompany.ratings);
-           console.log('Rating:', foundCompany.rating);
-           console.log('scoreAverage', scoreAverage);
-           res.render('companies/show', {company: foundCompany, scoreLength, scoreAverage, currentUser});
-       }
-   });
- });
-
-
-=======
 // SHOW - shows more info about one company
 router.get('/companies/:id', (req, res) => {
   Company.findById(req.params.id).populate('comments').populate('ratings').exec((err, foundCompany) => {
@@ -90,7 +58,6 @@ router.get('/companies/:id', (req, res) => {
     }
   });
 });
->>>>>>> ae547d79631c7aaa18fc9093677b9ded6b3cdf9d
 // EDIT Company ROUTE
 router.get('/companies/:id/edit', (req, res, next) => {
 	Company.findById(req.params.id)
@@ -100,30 +67,6 @@ router.get('/companies/:id/edit', (req, res, next) => {
 			return error
 		});
 });
-<<<<<<< HEAD
-
-
-// UPDATE Company ROUTE
-router.post('/companies/:id/edit', (req, res, next) => {
-	const { name, url, image, description } = req.body
-	Company.findByIdAndUpdate(req.params.id, { name, url, image, description }, { new: true })
-		.then(res.redirect('/companies'))
-		.catch(error => {
-			next()
-			return error
-		});
-});
-
-
-// DELETE Company ROUTE
-router.post('/companies/:id/delete', (req, res, next) => {
-  Company.findByIdAndRemove(req.params.id)
-    .then(res.redirect('/companies'))
-    .catch(error => {
-      next()
-      return error
-    });
-=======
 // UPDATE Company ROUTE
 router.post('companies/:id', (req, res) => {
   // find and update the correct company
@@ -155,7 +98,6 @@ router.get('/companies/:id/new', async (req, res, next) => {
   } catch (error){
     console.log(error);
   }
->>>>>>> ae547d79631c7aaa18fc9093677b9ded6b3cdf9d
 });
 
 module.exports = router;
