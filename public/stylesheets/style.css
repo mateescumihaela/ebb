@@ -325,4 +325,7 @@ input {
   -ms-transition: box-shadow .5s ease;
   transition: box-shadow .5s ease; }
 
+.company-edit {
+  margin-left: 150px; }
+
 /*# sourceMappingURL=style.css.map */

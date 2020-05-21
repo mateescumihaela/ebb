@@ -91,13 +91,25 @@
                     <span class="pull-right"></span>
                     <p>
                         Comment: {{this.text}}
-                    </p>         
-                    {{!-- <a class='btn btn-xs btn-primary'
-                    href="/companies/{{company.id}}/comments/{{this.id}}/edit">
+                    </p>
+
+
+{{!--                      <a class='btn btn-xs btn-primary'
+                    href="/companies/{{company.id}}/edit">
                     Edit
                     </a>
-                    <form class='delete-form' action="/companies/{{company.id}}/comments/{{this.id}}?_method=DELETE" method='POST'>
+ --}}
+{{!--                      <a class='btn btn-xs btn-danger'
+                    href="/companies/{{company.id}}/comments/{{this.id}}/?_method=DELETE" method='POST'>
+                    Delete
+                    </a> --}}
+
+
+        {{!--             <form class='delete-form' action="/companies/{{company.id}}/comments/{{this.id}}?_method=DELETE" method='POST'>
                     <input class="btn btn-xs btn-danger" type='submit' value='Delete'></input> --}}
+
+
+
                     {{!-- </form> --}}
              </div>
         </div>
@@ -273,3 +285,16 @@
     </div>
    
 </form> 
+
+
+
+ <h2 class="text-warning2 my-4"><u>If you think any of {{company.name}}'s info should be updated, please submit your changes below</u></h2>
+<br>
+      <div class="company-edit">
+        <a href='/companies/{{ company.id }}/edit' class='btn primary btn-sm' <p> Edit company details </p> </a>
+      </div>
+
+
+       <form method="POST" action="/companies/{{company.id}}/delete">
+  <button type="submit" class="btn btn-danger">Delete Company</button>
+</form>
