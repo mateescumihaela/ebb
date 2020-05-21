@@ -3,21 +3,18 @@ const router = express.Router({mergeParams: true}); // pass through params
 const Company = require('../models/company');
 const Comment = require('../models/comment');
 const User = require('../models/user.js');
-
-
 // Comment NEW route
 router.get('/companies/:id/comments/new', (req, res) => {
-	//find company by id
+    //find company by id
+    const currentUser = req.session.currentUser;
 	Company.findById(req.params.id, (err, company) => {
 		if(err){
 			console.log(err);
 		}else{
-			res.render('comments/new', {company: company});
+			res.render('comments/new', {company: company, currentUser});
 		}
 	});
 });
-
-
 // Comment CREATE route
 router.post('/companies/:id/comments', (req, res) => {
     //lookup company using ID
@@ -50,7 +47,6 @@ router.post('/companies/:id/comments', (req, res) => {
        }
    });
 });
-
 // Comment EDIT route
 /* router.get('/companies/:id/comments/:comment_id/edit', (req, res) => {
     Comment.findById(req.params.comment_id, (err, foundComment) => {
@@ -59,6 +55,7 @@ router.post('/companies/:id/comments', (req, res) => {
         } else {
           res.render("comments/edit", {company_id: req.params.id, comment: foundComment});
         }
+<<<<<<< HEAD
      });
   });
  */
@@ -86,6 +83,23 @@ router.post('/companies/:id/comments/:comment_id/edit', (req, res, next) => {
 // Comment UPDATE route
 /* router.put('/companies/:id/comments/:comment_id', (req, res) => {
     Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
+=======
+    });
+});
+// Comment UPDATE route
+router.put('/companies/:id/comments/:comment_id', (req, res) => {
+    Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, (err, updatedComment) => {
+        if(err){
+            res.redirect('back');
+        }else{
+            res.redirect('/companies/'+req.params.id);
+        }
+    });
+});
+// Comment DESTROY route
+router.delete('/companies/:id/comments/:comment_id', (req, res) => {
+    Comment.findByIdAndRemove(req.params.comment_id, (err) => {
+>>>>>>> ae547d79631c7aaa18fc9093677b9ded6b3cdf9d
         if(err){
             res.redirect("back");
         } else {
@@ -95,6 +109,7 @@ router.post('/companies/:id/comments/:comment_id/edit', (req, res, next) => {
   });
    */
 
+<<<<<<< HEAD
 
 // Comment DESTROY route
 router.post('/companies/:id/comments/:comment_id/delete', (req, res, next) => {
@@ -105,4 +120,6 @@ router.post('/companies/:id/comments/:comment_id/delete', (req, res, next) => {
         return error
       })
   })
+=======
+>>>>>>> ae547d79631c7aaa18fc9093677b9ded6b3cdf9d
 module.exports = router;

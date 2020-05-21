@@ -23,13 +23,66 @@ a {
   height: 150px;
   width: 150px; }
 
-.user-details-signup {
-  font-size: 16px; }
+.submitButton {
+  width: 70%; }
+
+#signUpForm {
+  border-radius: 4px;
+  width: 500px;
+  padding: 15px;
+  background-color: white;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: baseline;
+  align-content: stretch; }
+  #signUpForm .error-message {
+    background: #F02B63;
+    box-sizing: border-box;
+    color: #fff;
+    margin: 10px auto;
+    padding: 15px;
+    width: 100%; }
+  #signUpForm input {
+    width: 70%;
+    margin-bottom: 10px;
+    background: #dcdcdc;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+    color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    -webkit-transition: box-shadow .5s ease;
+    -moz-transition: box-shadow .5s ease;
+    -o-transition: box-shadow .5s ease;
+    -ms-transition: box-shadow .5s ease;
+    transition: box-shadow .5s ease; }
+  #signUpForm .user-details-signup {
+    margin-left: 15px; }
 
 .user-details {
   border-radius: 5px;
-  margin: auto 25px;
-  padding-left: 15px;
+  margin: auto;
+  width: 1335px;
+  padding: 15px;
+  background-color: white;
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: baseline;
+  align-content: stretch; }
+
+.user-details-form {
+  border-radius: 5px;
+  margin: auto 20px;
+  width: 450px;
+  padding: 15px;
   background-color: white;
   font-size: 16px;
   display: flex;
@@ -45,23 +98,26 @@ a {
 .usernameH1 {
   color: white;
   margin-top: 10px;
-  margin-left: 25px; }
+  margin-left: 40px; }
 
 .user-interaction {
   flex-wrap: wrap;
-  margin: auto 50px;
+  margin: auto 5px auto 35px;
   font-size: 16px;
-  padding-top: 20px; }
+  padding-top: 20px;
+  padding: 20px; }
   .user-interaction .myComments {
     border-radius: 6px;
-    border: solid black 3px;
+    border: solid black 2px;
     background-color: white;
-    font-size: 16px; }
+    font-size: 15px; }
   .user-interaction .myVotes {
     border-radius: 6px;
-    border: solid black 3px;
+    border: solid black 2px;
     background-color: white;
-    font-size: 16px; }
+    font-size: 15px; }
+  .user-interaction .userScore {
+    font-size: 14px; }
   .user-interaction .company-name {
     border: 1px solid black; }
 
@@ -94,8 +150,11 @@ a {
 .btn-success {
   background-color: #4c3196 !important; }
 
-.btn-block {
-  background-color: #4c3196 !important; }
+.btn-info {
+  background-color: #4c3196 !important;
+  align-self: center;
+  margin-left: 170px;
+  width: 50%; }
 
 .btn-success {
   outline: none !important; }
@@ -285,6 +344,7 @@ h3 {
 
 label {
   margin-top: 6px;
+  padding-bottom: 3px;
   line-height: 17px; }
 
 a {
@@ -296,22 +356,24 @@ a:hover {
 
 .login {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   margin: -150px 0 0 -150px;
   width: 300px;
-  height: 300px; }
-
-.login h1 {
-  color: #fff;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  letter-spacing: 1px;
-  text-align: center; }
+  height: 300px;
+  padding-bottom: 3px; }
+  .login .error-message {
+    background: #F02B63;
+    box-sizing: border-box;
+    color: #fff;
+    margin: 10px auto;
+    padding: 15px;
+    width: 100%; }
 
 input {
   width: 100%;
   margin-bottom: 10px;
-  background: rgba(0, 0, 0, 0.3);
+  background: #dcdcdc;
   border: none;
   outline: none;
   padding: 10px;
@@ -325,7 +387,15 @@ input {
   -ms-transition: box-shadow .5s ease;
   transition: box-shadow .5s ease; }
 
+<<<<<<< HEAD
 .company-edit {
   margin-left: 150px; }
+=======
+.login h1 {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+  text-align: center; }
+>>>>>>> ae547d79631c7aaa18fc9093677b9ded6b3cdf9d
 
 /*# sourceMappingURL=style.css.map */

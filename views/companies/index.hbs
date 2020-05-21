@@ -2,34 +2,17 @@
   <link rel="stylesheet" href="/stylesheets/cards.css">
 </head>
 
-{{!--  <h1 class="mb-0 display-2 hero-title">We crowdsourced company policies to help create a more diverse workforce</h1>
-    <br>
-    <h3 class="sub-title">Know a company that should be featured?</h3>
-    <br>
-    <a class="btn primary btn-lg" href="/companies/new">Submit a Company</a> --}}
-
-{{!-- <h1 class="mb-0 display-2 hero-title">Most Popular Companies</h1>
-    <h4 class="sub-title">EBB is a collaborative list of female-friendly companies, based on users reviews and rating.</h4>
-    <a class="btn primary btn-lg" href="/companies/new">Missing a Company? Submit one!</a>
-
-  </div>
-</div> --}}
-
 <svg width="1500" height="100" viewBox="0 0 600 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
- <g>
-  <path id="svg_4" d="m-2,-52.30547c213.92539,-164.88947 427.85073,164.88946 641.77607,0l0,296.80101c-145.92534,122.88948 -463.85068,-190.88945 -641.77607,0l0,-296.80101z" fill="#ffffff"/>
-  <div class="container-header">
-   <h1 class="mb-0 display-2 hero-title">Most Popular Companies</h1>
-   <br>
-<h3 class="sub-title">EBB is a collaborative list of female-friendly companies, based on users reviews and rating.</h3>
-
-<h4 class="sub-title">Know a company that should be featured?</h4>
-<br>
-    <a class="btn primary btn-lg" href="/companies/new">Submit a company</a>
+  <g>
+    <path id="svg_4" d="m-2,-52.30547c213.92539,-164.88947 427.85073,164.88946 641.77607,0l0,296.80101c-145.92534,122.88948 -463.85068,-190.88945 -641.77607,0l0,-296.80101z" fill="#ffffff"/>
+    <div class="container-header">
+      <h1 class="mb-0 display-2 hero-title">Most Popular Companies</h1><br>
+      <h3 class="sub-title">EBB is a collaborative list of female-friendly companies, based on users reviews and rating.</h3>
+      <h4 class="sub-title">Know a company that should be featured?</h4><br>
+      <a class="btn primary btn-lg" href="/companies/new">Submit a company</a>
+    </div>
+  </g>
 </svg>
- </g>
-   </div>
-
 
 <div class="cards-list">
   {{#each allCompanies}}
@@ -38,11 +21,14 @@
         <img src="{{ this.image }}"/>
       </div>
       <div class="card_title">
-        <a href='/companies/{{ this._id }}' class='btn primary btn-sm' <p> See company details </p> </a>
+        <a href='/companies/{{ this._id }}' class='btn primary btn-sm'>
+          <p>
+            See company details 
+          </p> 
+        </a>
       </div>
     </div>
   {{/each}}
-
 </div>
 
 

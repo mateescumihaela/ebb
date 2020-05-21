@@ -17,7 +17,6 @@ router.get('/signup', (req, res, next) => {
         next(e);
     }
 });
-
 router.get('/login', (req, res, next) => {
     try {
         res.render('auth/login');
@@ -25,13 +24,11 @@ router.get('/login', (req, res, next) => {
         next(e);
     }
 });
-
 router.get('/logout', (req, res, next) => {
     req.session.destroy(() => {
         res.redirect('/login');
     })
 });
-
 router.get('/users-edit', (req, res) => {
     const currentUserId = req.session.currentUser._id;
     User.findById(currentUserId)
@@ -40,10 +37,8 @@ router.get('/users-edit', (req, res) => {
             res.render('users-edit', {currentUser});
         })
 });
-
 router.get('/users/:username', (req, res) => {
     const currentUserId = req.session.currentUser._id;
-
     User.findById(currentUserId)
         .then(currentUser => {
             Comment
@@ -59,7 +54,6 @@ router.get('/users/:username', (req, res) => {
                 })
         })
 });
-
 // POST Routes
 router.post('/login', (req, res, next) => {
     const username = req.body.username;
@@ -70,7 +64,6 @@ router.post('/login', (req, res, next) => {
         });
         return;
     }
-
     //check if user exists and if password matches
     User.findOne({'username': username})
     .then(user => {
@@ -90,14 +83,12 @@ router.post('/login', (req, res, next) => {
         }
     })
 });
-
 router.post('/signup', uploadCloud.single('photo'), (req, res, next) => {
     const {username, password, firstName, lastName, age, email} = req.body;
     const imgPath = req.file.url;
     const imgName = req.file.originalname;
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
-    
     // Making sure username and password are not empty
     if(username === "" || password === "") {
       res.render("auth/signup", {
@@ -105,9 +96,8 @@ router.post('/signup', uploadCloud.single('photo'), (req, res, next) => {
       })
       return;
     } 
-
     // Making sure that user doesn't exist already
-    User.findOne({ "username" : username})
+    User.findOne({ "username" : username, "email": email})
     .then(user => {
     if (user) {
         res.render("auth/signup", {
@@ -115,7 +105,6 @@ router.post('/signup', uploadCloud.single('photo'), (req, res, next) => {
         });
         return;
     }
-
     User.create({firstName, lastName, age, username, password: hashPass, email, imgPath, imgName})
     .then(() => {
         res.redirect('/');
@@ -125,20 +114,13 @@ router.post('/signup', uploadCloud.single('photo'), (req, res, next) => {
     })
     });
 });
-
 router.post('/users-edit/:id', (req, res) => {
     const currentUserId = req.session.currentUser._id;
-    // if (req.file) {
-    // const imgPath = req.files['photo'][0].url;
-    // const imgName = req.files['photo'].originalname;
-    // }
     const {firstName, lastName, age} = req.body;
-    User.updateOne({_id: currentUserId}, {$set: {firstName, lastName, age, 
-        // imgPath, imgName
-    }})
-        .then(() => {
-            res.redirect('/users/:username');
-        })
+       User.updateOne({_id: currentUserId}, {$set: {firstName, lastName, age}})
+            .then(() => {
+                res.redirect('/users/:username');
+            })
 });
 
  module.exports = router;

@@ -15,7 +15,6 @@
             <th scope="row"><img src="{{currentUser.imgPath}}" alt="" class="avatar"></th>
             <td>
               <label><b>Name:</b> </label><span> {{currentUser.firstName}} {{currentUser.lastName}}</span><br>
-              {{!-- <label><b>Date of Birth:</b> </label><span> {{currentUser.dateOfBirth}}</span><br> --}}
               <label><b>Age:</b> </label><span> {{currentUser.age}}</span><br>
               <label><b>Username:</b> </label><span> {{currentUser.username}}</span><br>
               <label><b>E-mail:</b> </label><span> {{currentUser.email}}</span><br>
@@ -59,7 +58,7 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Company</th>
-            <th scope="col">Votes</th>
+            <th scope="col" class="userScore">Average Rating</th>
             <th scope="col">Posted on</th>
           </tr>
         </thead>
@@ -68,7 +67,7 @@
             <tr>
               <th scope="row">{{inc @index}}</th>
               <td>{{this.company.name}}</td>
-              <td>{{this.score}}</td>
+              <td class="userScore">{{this.score}}</td>
               <td>{{prettifyDate createdAt}}</td>
             </tr>
           </tbody>
