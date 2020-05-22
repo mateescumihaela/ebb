@@ -1,14 +1,15 @@
-<form action="/signup" method="POST" id="signUpForm" enctype="multipart/form-data" style="position: absolute; left: 30%">
-<h2>Sign-up</h2>
-<div class="user-details-signup" style="position: relative">
+<div class="signup-wrapper">
+<form action="/signup" method="POST" id="signUpForm" enctype="multipart/form-data">
+<h2>Sign Up</h2>
+<div class="user-details-signup">
     <div class="row">
-      <p>
+      <p class='form-inputs'>
         <label>First Name</label>
         <input type="text" name="firstName" placeholder="Your first name" required><br>
         <label>Last Name</label>
         <input type="text" name="lastName" placeholder="Your last name" required><br>
-        <label>Age</label>
-        <input type="number" name="age" required><br>
+        {{!-- <label>Age</label>
+        <input type="number" name="age" required><br> --}}
         <label>Username</label>
         <input type="text" name="username" placeholder="Choose a username" required><br>
         <label>Password</label>
@@ -27,3 +28,47 @@
       {{/if}}
   </div>
 </form>
+</div>
+ 
+
+
+
+{{!-- <div class="contact-wrapper">
+  <header class="login-cta">
+    <h2>Account Login</h2>
+  </header>
+  <form>
+    <div class="form-row">
+      <input type="text" required>
+      <span>Username or Email</span>
+    </div>
+    <div class="form-row">
+      <input type="password" required>
+      <span>Password</span>
+    </div>
+    <div class="form-row"></div>
+    <div class="form-row">
+      <button type="submit">Login to your Account!</button>
+    </div>
+  </form> --}}
+
+
+
+{{!-- <div class="login">
+  <form action="/login" method="POST" id="form">
+    <h2>Login</h2>
+    <label>Username</label>
+    <input type="text" name="username">
+    <label>Password</label>
+    <input type="password" name="password"><br><br>
+      {{#if errorMessage}}
+        <div class="error-message">
+          {{errorMessage}}
+        </div>
+      {{/if}}
+    <button type="submit">Login</button><br><br>
+      <p class="account-message">
+        Don't have an account? <a href="/signup">Sign up</a>
+      </p>
+  </form>
+</div> --}}

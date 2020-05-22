@@ -1,21 +1,27 @@
-<div class="container mt-2">
-    <div class="row ">
-        <div class="col-md-8 m-auto">
-            <h1 class="text-center text-info my-3" style="font-size:2rem">
-            </h1>
-        </div>
-    </div>
-    <table class="table table-hover table-dark">
-        <h2 class="text-warning1 my-4">
+{{!-- <div class="container2 center">
+  <div class="card2">
+    <h2>About</h2>
+    <hr/>
+    <p class='text2'>{{company.name}} is a {{company.description}}
+    </p>
+  </div>
+</div>
+ --}}
+
+  <h2 class="text-warning1 my-4">
             <u> 
                 Here's how {{company.name}} scores
             </u>
         </h2>
-        <h3 class="text-warning my-4">
-            <u>
-                Average Score 
-            </u>
-        </h3>
+{{!--     <div class="container2 center">
+  <div class="card2">
+    <h2>About</h2>
+    <hr/>
+    <p class='text2'>{{company.name}} is a {{company.description}}
+    </p>
+  </div>
+</div> --}}
+       
         <div class="pie-wrapper progress-half">        
         <span class="label">{{scoreAverage}}</span>
         <div class="pie">
@@ -29,46 +35,53 @@
             <div class="left-side half-circle"></div>
             <div class="right-side half-circle"></div>
         </div>  
-        </div><br><br>
+        </div>
+        {{!-- <div style="clear: both"
+        <h3 style="float: left" class="text-warning my-4">
+                Average Score <h3 style="margin-left: 100px">Total Votes</h3>
+        </h3>
+
+</div> --}}
+
+
+
+    <div class="row ">
+        <div class="col-md-8 m-auto">
+            <h1 class="text-center text-info my-3" style="font-size:2rem">
+            </h1>
+        </div>
+    </div>
+    <table class="table table-hover table-dark">
+      {{!--   <h2 class="text-warning1 my-4">
+            <u> 
+                Here's how {{company.name}} scores
+            </u>
+        </h2>
+    
+        <h3 class="text-warning my-4">
+            <u>
+                Average Score 
+            </u>
+        </h3>
+       
+        <div class="pie-wrapper progress-half">        
+        <span class="label">{{scoreAverage}}</span>
+        <div class="pie">
+            <div class="left-side half-circle"></div>
+            <div class="right-side half-circle"></div>
+        </div>  
+        </div>
+        <div class="pie-wrapper progress-full">
+        <span class="label">{{scoreLength}}</span>
+        <div class="pie">
+            <div class="left-side half-circle"></div>
+            <div class="right-side half-circle"></div>
+        </div>  
+        </div> --}}<br><br>
+       
         <h2 class="text-warning2 my-4"><u>Working or worked at {{company.name}}? Leave a comment or submit your vote below</u></h2>
-{{!--         <thead>
-            <tr class="bg-primary">
-                <th scope="col">Company</th>
-                <th scope="col">Score</th>
-                <th scope="col">Total Votes</th>
-            </tr>
-        </thead> --}}
-{{!-- {{#each scoreAverage}} --}}
-{{!--   <tbody>
-            <tr>
-                <th scope="row">{{company.name}}</th>
-                <th scope="col">{{this.scoreAverage}}</th>
-                <th scope="row">{{this.scoreLength}}</th>
-            </tr> --}}
-{{!--                 <tr>
-                <th scope="row">Gender Pay Gap</th>
-                <th scope="col">{{genderPayGapScore}}</th>
-                <th scope="row">{{votes}}</th>
-            </tr>
-                 <tr>
-                <th scope="row">Maternity Leave</th>
-                <th scope="col">{{maternityLeaveScore}}</th>
-                <th scope="row">{{votes}}</th>
-            </tr>
-            </tr>
-                 <tr>
-                <th scope="row">Flexible Work Schedule</th>
-                <th scope="col">{{flexibleWorkScheduleScore}}</th>
-                <th scope="row">{{votes}}</th>
-            </tr>
-            <tr>
-                <th scope="row">Career Growth</th>
-                <th scope="col">{{careerGrowthScore}}</th>
-                <th scope="row">{{votes}}</th>
-            </tr> --}}
-        {{!-- </tbody> --}}
     </table>
-</div><br>
+<br>
 
 <div class="well">
     <div class="text-right">

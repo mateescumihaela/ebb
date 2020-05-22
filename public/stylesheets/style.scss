@@ -20,9 +20,6 @@ p {
   margin-top: -40px;
   overflow: hidden; 
 }
-a {
-  color: #00B7FF;
-}
 .avatar {
   height: 150px;
   width: 150px;
@@ -50,9 +47,9 @@ a {
     padding: 15px;
     width: 100%; 
   }
-  input { 
+/*   input { 
     width: 70%; 
-    margin-bottom: 10px; 
+   
     background:#dcdcdc;
     border: none;
     outline: none;
@@ -66,7 +63,7 @@ a {
     -o-transition: box-shadow .5s ease;
     -ms-transition: box-shadow .5s ease;
     transition: box-shadow .5s ease;
-  }
+  } */
   .user-details-signup {
     margin-left: 15px;
   }
@@ -169,6 +166,18 @@ a {
   margin-left: 170px;
   width: 50%;
 }
+
+.btn-lg {
+  background-color: #4c3196 !important;
+  border-color: transparent !important;
+}
+
+.btn-sm {
+  background-color: #4c3196 !important;
+  border-color: transparent !important;
+}
+
+
 .btn-success{
   outline: none !important;
 }
@@ -200,19 +209,20 @@ a {
   margin-left: 150px;
   margin-right: 150px;
 }
-.pie-wrapper {display:inline-block;position:relative;display:inline-block;width:200px;height:200px;margin:10px;border:10px  solid #ddd;border-radius:50%}
+.pie-wrapper {margin: auto; position:relative;display:inline-block;width:200px;height:200px;margin:10px;border:10px  solid #ddd;border-radius:50%}
 .pie-wrapper .pie {clip:rect(0,200px,200px,100px);height:200px;position:absolute;width:200px;margin:-10px 0 0 -10px}
 .pie-wrapper .pie .half-circle {border:10px solid #3498db;clip:rect(0,100px,200px,0);height:200px;position:absolute;width:200px;border-radius:50%}
 .pie-wrapper .label{position:absolute;top:5%;left:5%;display:block;width:180px;height:180px;color:#7f8c8d;cursor:default;font-size:3em;line-height:3em;text-align:center;border-radius:50%}
 .pie-wrapper .label em {padding-bottom:20px;color:#bdc3c7;font-size:.45em;vertical-align:super;font-style:normal}
 .pie-wrapper .shadow {width:100%;height:100%;border:20px solid #bdc3c7;border-radius: 50%}
-.pie-wrapper.progress-half .pie .right-side {display: none}
+// .pie-wrapper.progress-half .pie .right-side {display: none}
+
 .pie-wrapper.progress-half .pie .half-circle {border-style:solid;border-image:-webkit-linear-graident(#ff0000, #ffff00)}
 .pie-wrapper.progress-half .pie .left-side,.pie-wrapper.progress-full .pie .left-side {-webkit-transform: rotate(165deg);-moz-transform: rotate(165deg);transform: rotate(165deg)}
 .pie-wrapper.progress-full .pie .left-side{-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg);transform: rotate(180deg)}
 .pie-wrapper.progress-full .pie{clip:inherit}
-.pie-wrapper.progress-full .pie .right-side {display:block}
-.pie-wrapper.progress-half {margin-left: 200px;}
+.pie-wrapper.progress-full .pie .right-side {display:inline-block;}
+.pie-wrapper.progress-half {margin-left: 350px;}
 .pie-wrapper.progress-full {margin-left: 350px;}
 .pie-wrapper.progress-full .pie .right-side{-webkit-transform: rotate(300deg);-moz-transform: rotate(300deg);transform: rotate(300deg)}
 div,div:before,div:after {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box}
@@ -229,9 +239,9 @@ div,div:before,div:after {-moz-box-sizing: border-box;-webkit-box-sizing: border
   background-image: linear-gradient(#8459f9, #4c3196) !important;
 }
 .text-warning {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 700;
-  margin-left: 160px;
+  margin-left: 300px;
   line-height: 50px;
   letter-spacing: 2px;
   background: #3498DB;
@@ -240,6 +250,7 @@ div,div:before,div:after {-moz-box-sizing: border-box;-webkit-box-sizing: border
   background-size: 300% 300%;
   animation: gradient-text 8s ease infinite;
 }
+
 .text-warning1 {
   font-size: 60px;
   font-weight: 700;
@@ -285,6 +296,8 @@ div,div:before,div:after {-moz-box-sizing: border-box;-webkit-box-sizing: border
 h3 {
   margin-right: 700px;
 }
+
+
 //Login styling
 label {
   margin-top: 6px;
@@ -368,3 +381,173 @@ input {
   margin-right: 20px;
 }
 
+//show card
+
+$black: #282828;
+$point: salmon;
+$point-light: lighten($point, 5%);
+
+$ratio: 1.618;
+$card_width: 250px;
+$card_height: $card_width * $ratio;
+$card_padding: 20px;
+$card-bgcolor: white;
+$card_margin: 5px;
+$card_round: 10px;
+$card-shadow: -20px -20px 0px 0px $point-light;
+
+$card-padding-basis: 15px;
+$card_head_padding: 0px 0px $card-padding-basis 0px;
+
+
+
+.container2{
+  width: 80%;
+  min-height: 100vh;  
+   display: -webkit-box;  
+   display: -ms-flexbox;  
+  display: flex;
+  // -ms-flex-wrap: wrap;
+  //     flex-wrap: wrap;
+  
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.center{
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.card2{
+  background-color: $card-bgcolor;
+  width: $card_width;
+  min-height: $card_height;
+  
+  display: -webkit-box;
+  
+  display: -ms-flexbox;
+  
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: $card_padding;
+  margin: $card_margin;
+  
+  -webkit-box-shadow: $card-shadow;
+  
+          box-shadow: $card-shadow;
+  border-radius: $card_round;
+  
+  -webkit-animation-name: shadow-show; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1.5s; /* Safari 4.0 - 8.0 */
+  animation-name: shadow-show;
+  animation-duration: 1.5s;
+  
+  -webkit-transition-timing-function: cubic-bezier(0.795, 0.000, 0.165, 1.000);
+  -o-transition-timing-function: cubic-bezier(0.795, 0.000, 0.165, 1.000);
+  transition-timing-function: cubic-bezier(0.795, 0.000, 0.165, 1.000); /* custom */
+
+
+  
+  hr{
+    display: block;
+    border: none;
+    height: 3px;
+    background-color: $point;
+    margin: 0px;
+    -webkit-animation-name: line-show; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 0.3s; /* Safari 4.0 - 8.0 */
+    animation-name: line-show;
+    animation-duration: 0.3s;
+    -webkit-transition-timing-function: cubic-bezier(0.795, 0.000, 0.165, 1.000);
+    -o-transition-timing-function: cubic-bezier(0.795, 0.000, 0.165, 1.000);
+    transition-timing-function: cubic-bezier(0.795, 0.000, 0.165, 1.000); /* custom */
+  }
+
+  .text2 {
+    color: black !important;
+    margin: $card-padding-basis 0px 0px 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 100;
+    letter-spacing: -0.25px;
+    line-height: 1.25;
+    font-size: 16px;
+    word-break: break-all;
+    word-wrap: pre-wrap;
+  }
+  
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes line-show {
+  from {margin: 0px 100px;}
+  to {margin: 0px;}
+}
+
+/* Standard syntax */
+@keyframes line-show {
+  from {margin: 0px 100px;}
+  to {margin: 0px;}
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes p-show {
+  from {color: white;}
+  to {color: $black;}
+}
+
+/* Standard syntax */
+@keyframes p-show {
+  from {color: white;}
+  to {color: $black;}
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes shadow-show {
+  from {
+    -webkit-box-shadow: 0px 0px 0px 0px #e0e0e0;
+    box-shadow: 0px 0px 0px 0px #e0e0e0;
+  }
+  to {
+    -webkit-box-shadow: $card-shadow;
+    box-shadow: $card-shadow;
+  }
+}
+
+/* Standard syntax */
+@keyframes shadow-show {
+  from {-webkit-box-shadow: 0px 0px 0px 0px #e0e0e0;box-shadow: 0px 0px 0px 0px #e0e0e0;}
+  to {-webkit-box-shadow: $card-shadow;box-shadow: $card-shadow;}
+}
+
+
+//Signup styling
+
+form {
+  margin-top: 25px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.form-inputs {
+  margin-left: 55px;;
+}
+
+.signup-wrapper{
+  display: block;
+  text-align: center;
+}
+
+
+h3 {
+  display: inline !important;
+}
