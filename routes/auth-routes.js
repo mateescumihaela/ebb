@@ -114,10 +114,12 @@ router.post('/signup', uploadCloud.single('photo'), (req, res, next) => {
     })
     });
 });
-router.post('/users-edit/:id', (req, res) => {
+router.post('/users-edit/:id', uploadCloud.single('photo'), (req, res, next) => {
     const currentUserId = req.session.currentUser._id;
+    const imgPath = req.file.url;
+    const imgName = req.file.originalname;
     const {firstName, lastName, age} = req.body;
-       User.updateOne({_id: currentUserId}, {$set: {firstName, lastName, age}})
+       User.findByIdAndUpdate(currentUserId, {$set: {firstName, lastName, age, imgName, imgPath}})
             .then(() => {
                 res.redirect('/users/:username');
             })

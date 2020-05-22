@@ -1,21 +1,21 @@
-<div class="signup-wrapper">
+<div class="signup-wrapper d-flex justify-content-center">
 <form action="/signup" method="POST" id="signUpForm" enctype="multipart/form-data">
 <h2>Sign Up</h2>
 <div class="user-details-signup">
     <div class="row">
       <p class='form-inputs'>
         <label>First Name</label>
-        <input type="text" name="firstName" placeholder="Your first name" required><br>
+        <input type="text" name="firstName" placeholder="Your first name"><br>
         <label>Last Name</label>
-        <input type="text" name="lastName" placeholder="Your last name" required><br>
-        {{!-- <label>Age</label>
-        <input type="number" name="age" required><br> --}}
+        <input type="text" name="lastName" placeholder="Your last name"><br>
+        <label>Age</label>
+        <input type="number" name="age"><br>
         <label>Username</label>
-        <input type="text" name="username" placeholder="Choose a username" required><br>
+        <input type="text" name="username" placeholder="Choose a username"><br>
         <label>Password</label>
-        <input type="password" name="password" placeholder="******" required><br>
+        <input type="password" name="password" placeholder="******"><br>
         <label>E-mail</label>
-        <input type="email" name="email" placeholder="Your e-mail" required><br>
+        <input type="email" name="email" placeholder="Your e-mail"><br>
         <label>Avatar</label>
         <input type="file" name="photo"><br><br>
         <button type="submit">Create Account</button>

@@ -39,6 +39,11 @@ p {
   justify-content: start;
   align-items: baseline;
   align-content: stretch;
+  margin-top: 25px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
   .error-message {
     background: #F02B63;
     box-sizing: border-box;
@@ -47,23 +52,20 @@ p {
     padding: 15px;
     width: 100%; 
   }
-/*   input { 
-    width: 70%; 
-   
-    background:#dcdcdc;
-    border: none;
-    outline: none;
-    padding: 10px;
-    font-size: 13px;
-    color: #fff;
-    border: 1px solid rgba(0,0,0,0.3);
-    border-radius: 4px;
-    -webkit-transition: box-shadow .5s ease;
-    -moz-transition: box-shadow .5s ease;
-    -o-transition: box-shadow .5s ease;
-    -ms-transition: box-shadow .5s ease;
-    transition: box-shadow .5s ease;
-  } */
+  .signup-wrapper{
+    display: block;
+    text-align: center;
+  }
+  h2 {
+    display: inline !important;
+  }
+  label{
+    color: black;
+  }
+  input {
+    width: 450px;
+    line-height: 15px;
+  }
   .user-details-signup {
     margin-left: 15px;
   }
@@ -530,24 +532,20 @@ $card_head_padding: 0px 0px $card-padding-basis 0px;
 
 //Signup styling
 
-form {
-  margin-top: 25px;
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-}
-
-.form-inputs {
-  margin-left: 55px;;
-}
-
-.signup-wrapper{
-  display: block;
-  text-align: center;
-}
-
-
-h3 {
-  display: inline !important;
-}
+// form {
+//   margin-top: 25px;
+//   display: inline-block;
+//   margin-left: auto;
+//   margin-right: auto;
+//   text-align: left;
+// }
+// .form-inputs {
+//   margin-left: 55px;;
+// }
+// .signup-wrapper{
+//   display: block;
+//   text-align: center;
+// }
+// h3 {
+//   display: inline !important;
+// }
