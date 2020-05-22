@@ -38,23 +38,11 @@ p {
   justify-content: start;
   align-items: baseline;
   align-content: stretch;
-  /*   input { 
-    width: 70%; 
-   
-    background:#dcdcdc;
-    border: none;
-    outline: none;
-    padding: 10px;
-    font-size: 13px;
-    color: #fff;
-    border: 1px solid rgba(0,0,0,0.3);
-    border-radius: 4px;
-    -webkit-transition: box-shadow .5s ease;
-    -moz-transition: box-shadow .5s ease;
-    -o-transition: box-shadow .5s ease;
-    -ms-transition: box-shadow .5s ease;
-    transition: box-shadow .5s ease;
-  } */ }
+  margin-top: 25px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left; }
   #signUpForm .error-message {
     background: #F02B63;
     box-sizing: border-box;
@@ -62,6 +50,16 @@ p {
     margin: 10px auto;
     padding: 15px;
     width: 100%; }
+  #signUpForm .signup-wrapper {
+    display: block;
+    text-align: center; }
+  #signUpForm h2 {
+    display: inline !important; }
+  #signUpForm label {
+    color: black; }
+  #signUpForm input {
+    width: 450px;
+    line-height: 15px; }
   #signUpForm .user-details-signup {
     margin-left: 15px; }
 
@@ -532,22 +530,5 @@ input {
   to {
     -webkit-box-shadow: -20px -20px 0px 0px #fb968b;
     box-shadow: -20px -20px 0px 0px #fb968b; } }
-
-form {
-  margin-top: 25px;
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left; }
-
-.form-inputs {
-  margin-left: 55px; }
-
-.signup-wrapper {
-  display: block;
-  text-align: center; }
-
-h3 {
-  display: inline !important; }
 
 /*# sourceMappingURL=style.css.map */

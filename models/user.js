@@ -10,7 +10,10 @@ const userSchema = new Schema({
   password: String,
   email: String,
   imgName: String,
-  imgPath: String,
+  imgPath: {
+    type: String,
+    default: "images/user-default.png",
+  }
 },  {
   timestamps: {
     createdAt: 'createdAt',
