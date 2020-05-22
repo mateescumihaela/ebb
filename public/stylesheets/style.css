@@ -268,7 +268,7 @@ p {
   display: inline-block; }
 
 .pie-wrapper.progress-half {
-  margin-left: 350px; }
+  margin-left: 370px; }
 
 .pie-wrapper.progress-full {
   margin-left: 350px; }
@@ -307,7 +307,7 @@ div, div:before, div:after {
   animation: gradient-text 8s ease infinite; }
 
 .text-warning1 {
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 700;
   text-align: center;
   line-height: 50px;
