@@ -16,7 +16,7 @@ hbs.registerHelper('inc', (value, options) => {
     return parseInt(value) + 1;
 });
 
-hbs.registerHelper("prettifyDate", (timestamp) => {
+ hbs.registerHelper("prettifyDate", (timestamp) => {
   function addZero(i) {
     if (i < 10) {
       i = "0" + i;
@@ -32,7 +32,7 @@ hbs.registerHelper("prettifyDate", (timestamp) => {
 
     result = `${addZero(curr_date)}/${addZero(curr_month)}/${addZero(curr_year)}, ${addZero(curr_hour)}:${addZero(curr_minutes)}`;
     return result;
-});
+}); 
 
 mongoose
   .connect(process.env.MONGODB_URI, {useNewUrlParser: true})
@@ -61,7 +61,7 @@ app.use(session({
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
     resave: true,
-    saveUninitialized: false,
+    saveUninitialized: true,
     ttl: 24 * 60* 60, // session living on the server - 1day, 
   })
 }));
