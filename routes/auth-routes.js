@@ -33,7 +33,7 @@ router.get('/users-edit', (req, res) => {
     const currentUserId = req.session.currentUser._id;
     User.findById(currentUserId)
         .then(currentUser => {
-            console.log(currentUser)
+            // console.log(currentUser)
             res.render('users-edit', {currentUser});
         })
 });
@@ -116,10 +116,10 @@ router.post('/signup', uploadCloud.single('photo'), (req, res, next) => {
 });
 router.post('/users-edit/:id', uploadCloud.single('photo'), (req, res, next) => {
     const currentUserId = req.session.currentUser._id;
-    const imgPath = req.file.url;
-    const imgName = req.file.originalname;
+    // const imgPath = req.file.url;
+    // const imgName = req.file.originalname;
     const {firstName, lastName, age} = req.body;
-       User.findByIdAndUpdate(currentUserId, {$set: {firstName, lastName, age, imgName, imgPath}})
+       User.findByIdAndUpdate(currentUserId, {$set: {firstName, lastName, age,}})
             .then(() => {
                 res.redirect('/users/:username');
             })

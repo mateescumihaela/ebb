@@ -59,7 +59,8 @@ p {
     color: black; }
   #signUpForm input {
     width: 450px;
-    line-height: 15px; }
+    line-height: 15px;
+    color: black; }
   #signUpForm .user-details-signup {
     margin-left: 15px; }
 
@@ -389,7 +390,8 @@ input {
   -moz-transition: box-shadow .5s ease;
   -o-transition: box-shadow .5s ease;
   -ms-transition: box-shadow .5s ease;
-  transition: box-shadow .5s ease; }
+  transition: box-shadow .5s ease;
+  color: black; }
 
 .login h1 {
   color: #fff;
