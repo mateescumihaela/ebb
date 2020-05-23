@@ -58,6 +58,7 @@ router.get('/companies/:id', (req, res) => {
     }
   });
 });
+
 // EDIT Company ROUTE
 router.get('/companies/:id/edit', (req, res, next) => {
 	Company.findById(req.params.id)
@@ -67,18 +68,24 @@ router.get('/companies/:id/edit', (req, res, next) => {
 			return error
 		});
 });
+
 // UPDATE Company ROUTE
-router.post('companies/:id', (req, res) => {
+router.post('companies/:id/edit', (req, res) => {
+     if(err){
+            console.log(err); 
+          }
   // find and update the correct company
   Company.findByIdAndUpdate(req.params.id, req.body.company, (err, updatedCompany) => {
     if(err) {
+      console.log(err);
       res.redirect('/companies');
     } else {
-      //redirect to company details page
+      //redirect to show page
       res.redirect('/companies/' + req.params.id);
     }
   });
 });
+
 // DESTROY Company ROUTE
 router.delete('companies/:id', (req, res) => {
   Company.findByIdAndRemove(req.params.id, (err) => {
@@ -89,6 +96,7 @@ router.delete('companies/:id', (req, res) => {
      }
   });
 });
+
 // Company VOTE ROUTE (might remove)
 router.get('/companies/:id/new', async (req, res, next) => {
   const { id } = req.params;

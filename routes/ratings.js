@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router({mergeParams: true});
 const Company = require('../models/company');
 const Rating = require('../models/rating');
+// const middleware = require("../middleware");
 
 
 
@@ -16,13 +17,17 @@ router.post('/companies/:id/ratings', (req, res) => {
 	const companyId = req.params.id;
 	const authorId = req.session.currentUser._id;
 	Company.findById(companyId, (err, company) => {
+	//if statement here
 		const newRating = new Rating({score: totalScore, user:  req.session.currentUser._id, company: companyId, author: authorId});
 		newRating.save((createdRating) => {
 			// console.log('saved', createdRating);
 			company.ratings.push(newRating);
 			company.save();
-
-			res.redirect('/companies/' + companyId);
+			// res.send("Successfully added rating");
+	//else
+		
+	res.redirect('/companies/' + companyId);
+			
 		});
 
 	});

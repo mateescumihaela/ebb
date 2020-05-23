@@ -1,21 +1,21 @@
 <div class="row justify-content-center submitCompany">
  <div class="col-md-6">
-<form method="POST" action="/companies/{{id}}/edit">
+<form action="companies/{{company.id}}/edit" method="POST" >
   <div class="form-group">
     <label for="nameField">Name</label>
     <input name="name" type="text" class="form-control" id="nameField" placeholder="Enter name" value="{{name}}">
   </div>
   <div class="form-group">
-    <label for="occupationField">URL</label>
-    <input name="occupation" type="text" class="form-control" id="occupationField" placeholder="Enter URL" value="{{url}}">
+    <label for="urlField">URL</label>
+    <input name="url" type="text" class="form-control" id="url" placeholder="Enter URL" value="{{url}}">
   </div>
   <div class="form-group">
-    <label for="catchPhraseField">Image</label>
-    <input name="catchPhrase" type="text" class="form-control" id="catchPhraseField" placeholder="Enter Image URL" value="{{image}}">
+    <label for="image">Image</label>
+    <input name="image" type="text" class="form-control" id="image" placeholder="Enter Image URL" value="{{image}}">
   </div>
    <div class="form-group">
-    <label for="catchPhraseField">Description</label>
-    <input name="catchPhrase" type="text" class="form-control" id="catchPhraseField" placeholder="Enter Description" value="{{description}}">
+    <label for="description">Description</label>
+    <input name="description" type="text" class="form-control" id="description" placeholder="Enter Description" value="{{description}}">
   </div>
   <button type="submit" class="btn btn-info btn-lg">Update Company</button>
   </div>

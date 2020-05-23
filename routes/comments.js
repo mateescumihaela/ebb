@@ -55,7 +55,6 @@ router.post('/companies/:id/comments', (req, res) => {
         } else {
           res.render("comments/edit", {company_id: req.params.id, comment: foundComment});
         }
-<<<<<<< HEAD
      });
   });
  */
@@ -83,23 +82,6 @@ router.post('/companies/:id/comments/:comment_id/edit', (req, res, next) => {
 // Comment UPDATE route
 /* router.put('/companies/:id/comments/:comment_id', (req, res) => {
     Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
-=======
-    });
-});
-// Comment UPDATE route
-router.put('/companies/:id/comments/:comment_id', (req, res) => {
-    Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, (err, updatedComment) => {
-        if(err){
-            res.redirect('back');
-        }else{
-            res.redirect('/companies/'+req.params.id);
-        }
-    });
-});
-// Comment DESTROY route
-router.delete('/companies/:id/comments/:comment_id', (req, res) => {
-    Comment.findByIdAndRemove(req.params.comment_id, (err) => {
->>>>>>> ae547d79631c7aaa18fc9093677b9ded6b3cdf9d
         if(err){
             res.redirect("back");
         } else {
