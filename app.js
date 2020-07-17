@@ -83,7 +83,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'EBB';
+app.locals.title = 'EBB - Developed by Julia Carvalho and Mihaela Mateescu';
 
 
 const auth = require('./routes/auth-routes');
